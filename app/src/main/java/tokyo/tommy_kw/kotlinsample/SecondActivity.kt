@@ -9,18 +9,18 @@ import android.widget.Toast
 /**
  * Created by tommy on 15/10/06.
  */
-public class SecondActivity : AppCompatActivity() {
+class SecondActivity : AppCompatActivity() {
     companion object {
-        fun makeIntent (context: Context):Intent {
-            val intent = Intent(context, SecondActivity::class.java)
-            //val intent = Intent(context, SecondActivity.javaClass)
-            return intent
+        val INTENT_ARG_MESSAGE = "INTENT_ARG_MESSAGE"
+        fun makeIntent (context: Context, message: String):Intent {
+            return Intent(context, SecondActivity::class.java)
+                    .putExtra(INTENT_ARG_MESSAGE, message)
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
-        Toast.makeText(this@SecondActivity, "second activity", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@SecondActivity, getIntent().getStringExtra("INTENT_ARG_MESSAGE"), Toast.LENGTH_SHORT).show()
     }
 }

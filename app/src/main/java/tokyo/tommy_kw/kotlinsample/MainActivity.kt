@@ -1,5 +1,6 @@
 package tokyo.tommy_kw.kotlinsample
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
@@ -15,7 +16,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import butterknife.bindView
 
-public class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     val toolbar:Toolbar by bindView(R.id.toolbar)
     val fab:FloatingActionButton by bindView(R.id.fab)
     val drawer:DrawerLayout by bindView(R.id.drawer_layout)
@@ -71,21 +72,26 @@ public class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         val id = item.itemId
+        val intent: Intent
 
         if (id == R.id.nav_camara) {
-            val intent = SecondActivity.makeIntent(this@MainActivity)
+            intent = SecondActivity.makeIntent(this@MainActivity, Constant.NAV_CAMERA)
             startActivity(intent)
-            // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+            intent = SecondActivity.makeIntent(this@MainActivity, Constant.NAV_GALLERY)
+            startActivity(intent)
         } else if (id == R.id.nav_slideshow) {
-
+            intent = SecondActivity.makeIntent(this@MainActivity, Constant.NAV_SLIDESHOW)
+            startActivity(intent)
         } else if (id == R.id.nav_manage) {
-
+            intent = SecondActivity.makeIntent(this@MainActivity, Constant.NAV_MANAGE)
+            startActivity(intent)
         } else if (id == R.id.nav_share) {
-
+            intent = SecondActivity.makeIntent(this@MainActivity, Constant.NAV_SHARE)
+            startActivity(intent)
         } else if (id == R.id.nav_send) {
-
+            intent = SecondActivity.makeIntent(this@MainActivity, Constant.NAV_SEND)
+            startActivity(intent)
         }
 
         drawer.closeDrawer(GravityCompat.START)
