@@ -12,9 +12,10 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import butterknife.bindView
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     val toolbar:Toolbar by bindView(R.id.toolbar)
     val fab:FloatingActionButton by bindView(R.id.fab)
     val drawer:DrawerLayout by bindView(R.id.drawer_layout)
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
         fab.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
+                Toast.makeText(this@MainActivity, "Replace with your own action", Toast.LENGTH_SHORT).show()
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show()
             }
         })
@@ -71,6 +73,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val id = item.itemId
 
         if (id == R.id.nav_camara) {
+            val intent = SecondActivity.makeIntent(this@MainActivity)
+            startActivity(intent)
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
