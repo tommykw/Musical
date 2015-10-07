@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.kotlinsample
+package tokyo.tommy_kw.kotlinsample.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,12 +15,21 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import butterknife.bindView
+import rx.Observer
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
+import tokyo.tommy_kw.kotlinsample.Constant
+import tokyo.tommy_kw.kotlinsample.R
+import tokyo.tommy_kw.kotlinsample.activity.SecondActivity
+import tokyo.tommy_kw.kotlinsample.api.ApiClient
+import tokyo.tommy_kw.kotlinsample.entity.Weather
+import java.util.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    val toolbar:Toolbar by bindView(R.id.toolbar)
-    val fab:FloatingActionButton by bindView(R.id.fab)
-    val drawer:DrawerLayout by bindView(R.id.drawer_layout)
-    val navigationView:NavigationView by bindView(R.id.nav_view)
+    val toolbar: Toolbar by bindView(R.id.toolbar)
+    val fab: FloatingActionButton by bindView(R.id.fab)
+    val drawer: DrawerLayout by bindView(R.id.drawer_layout)
+    val navigationView: NavigationView by bindView(R.id.nav_view)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +47,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer.setDrawerListener(toggle)
         toggle.syncState()
         navigationView.setNavigationItemSelectedListener(this)
+
+        fetchWeather()
     }
 
     override fun onBackPressed() {
@@ -96,5 +107,29 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun fetchWeather() {
+        val apiClient = ApiClient()
+        apiClient
+                .getWeather()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object: Observer<Array<Weather>> {
+                    override fun onCompleted() {
+                        Toast.makeText(this@MainActivity, "onCompleted", Toast.LENGTH_SHORT).show()
+                    }
+                    override fun onError(e: Throwable?) {
+                        e?.printStackTrace()
+                    }
+                    override fun onNext(t: Array<Weather>?) {
+                        t?.let {
+                            val groups = it.filter { rooms -> rooms.base.equals("group") }
+                            val index = Random().nextInt() * 100 % groups.size()
+                            val room = groups.get(Math.abs(index))
+                            Toast.makeText(this@MainActivity, "onNext", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                })
     }
 }

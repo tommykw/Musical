@@ -1,10 +1,11 @@
-package tokyo.tommy_kw.kotlinsample
+package tokyo.tommy_kw.kotlinsample.activity
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
+import tokyo.tommy_kw.kotlinsample.R
 
 /**
  * Created by tommy on 15/10/06.
@@ -12,7 +13,7 @@ import android.widget.Toast
 class SecondActivity : AppCompatActivity() {
     companion object {
         val INTENT_ARG_MESSAGE = "INTENT_ARG_MESSAGE"
-        fun makeIntent (context: Context, message: String):Intent {
+        fun makeIntent (context: Context, message: String): Intent {
             return Intent(context, SecondActivity::class.java)
                     .putExtra(INTENT_ARG_MESSAGE, message)
         }
