@@ -34,7 +34,7 @@ class ApiClient {
         mApiService = mRestAdapter.create(ApiService::class.java)
     }
 
-    fun getWeather(): Observable<Array<Weather>> {
+    fun getWeather(): Observable<Weather> {
         return mApiService.getWeather();
     }
 }

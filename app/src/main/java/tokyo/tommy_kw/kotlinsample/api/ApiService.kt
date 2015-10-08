@@ -12,5 +12,5 @@ interface ApiService {
         val VERSION = "2.5"
     }
     @GET("/${VERSION}/weather?q=Tokyo,jp")
-    fun getWeather() : Observable<Array<Weather>>
+    fun getWeather() : Observable<Weather>
 }

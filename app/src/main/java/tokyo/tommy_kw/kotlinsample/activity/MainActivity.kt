@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -115,19 +116,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .getWeather()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object: Observer<Array<Weather>> {
+                .subscribe(object: Observer<Weather> {
                     override fun onCompleted() {
                         Toast.makeText(this@MainActivity, "onCompleted", Toast.LENGTH_SHORT).show()
                     }
                     override fun onError(e: Throwable?) {
                         e?.printStackTrace()
                     }
-                    override fun onNext(t: Array<Weather>?) {
+                    override fun onNext(t: Weather?) {
+                        Toast.makeText(this@MainActivity, "onNext", Toast.LENGTH_SHORT).show()
                         t?.let {
-                            val groups = it.filter { rooms -> rooms.base.equals("group") }
-                            val index = Random().nextInt() * 100 % groups.size()
-                            val room = groups.get(Math.abs(index))
-                            Toast.makeText(this@MainActivity, "onNext", Toast.LENGTH_SHORT).show()
+                            it.base
+                            Toast.makeText(this@MainActivity, "${it.base}", Toast.LENGTH_SHORT).show()
+//                            val groups = it.filter { rooms -> rooms.base.equals("group") }
+//                            val index = Random().nextInt() * 100 % groups.size()
+//                            val room = groups.get(Math.abs(index))
+//                            Toast.makeText(this@MainActivity, "onNext", Toast.LENGTH_SHORT).show()
                         }
                     }
                 })
