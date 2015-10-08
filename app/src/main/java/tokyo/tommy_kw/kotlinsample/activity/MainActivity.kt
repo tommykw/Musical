@@ -11,9 +11,9 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import butterknife.bindView
 import rx.Observer
@@ -21,22 +21,24 @@ import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import tokyo.tommy_kw.kotlinsample.Constant
 import tokyo.tommy_kw.kotlinsample.R
-import tokyo.tommy_kw.kotlinsample.activity.SecondActivity
 import tokyo.tommy_kw.kotlinsample.api.ApiClient
 import tokyo.tommy_kw.kotlinsample.entity.Weather
-import java.util.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    val toolbar: Toolbar by bindView(R.id.toolbar)
-    val fab: FloatingActionButton by bindView(R.id.fab)
-    val drawer: DrawerLayout by bindView(R.id.drawer_layout)
-    val navigationView: NavigationView by bindView(R.id.nav_view)
+    val mToolbar: Toolbar by bindView(R.id.toolbar)
+    val mFab: FloatingActionButton by bindView(R.id.fab)
+    val mDrawer: DrawerLayout by bindView(R.id.drawer_layout)
+    val mNavigationView: NavigationView by bindView(R.id.nav_view)
+    val mLat: TextView by bindView(R.id.lat)
+    val mLon: TextView by bindView(R.id.lon)
+    val mBase: TextView by bindView(R.id.base)
+    val mName: TextView by bindView(R.id.name)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
-        fab.setOnClickListener(object : View.OnClickListener {
+        setSupportActionBar(mToolbar)
+        mFab.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
                 Toast.makeText(this@MainActivity, "Replace with your own action", Toast.LENGTH_SHORT).show()
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show()
@@ -44,17 +46,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         })
 
         val toggle = ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawer.setDrawerListener(toggle)
+                this, mDrawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        mDrawer.setDrawerListener(toggle)
         toggle.syncState()
-        navigationView.setNavigationItemSelectedListener(this)
+        mNavigationView.setNavigationItemSelectedListener(this)
 
         fetchWeather()
     }
 
     override fun onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START)
+        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
+            mDrawer.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
@@ -106,14 +108,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(intent)
         }
 
-        drawer.closeDrawer(GravityCompat.START)
+        mDrawer.closeDrawer(GravityCompat.START)
         return true
     }
 
     private fun fetchWeather() {
-        val apiClient = ApiClient()
-        apiClient
-                .getWeather()
+        ApiClient().getWeather()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object: Observer<Weather> {
@@ -122,16 +122,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     }
                     override fun onError(e: Throwable?) {
                         e?.printStackTrace()
+                        Toast.makeText(this@MainActivity, "onError", Toast.LENGTH_SHORT).show()
                     }
                     override fun onNext(t: Weather?) {
                         Toast.makeText(this@MainActivity, "onNext", Toast.LENGTH_SHORT).show()
                         t?.let {
-                            it.base
-                            Toast.makeText(this@MainActivity, "${it.base}", Toast.LENGTH_SHORT).show()
-//                            val groups = it.filter { rooms -> rooms.base.equals("group") }
-//                            val index = Random().nextInt() * 100 % groups.size()
-//                            val room = groups.get(Math.abs(index))
-//                            Toast.makeText(this@MainActivity, "onNext", Toast.LENGTH_SHORT).show()
+                            mBase.setText(it.base)
+                            mName.setText(it.name)
+                            mLon.setText(it.coord.lon.toString())
+                            mLat.setText(it.coord.lat.toString())
                         }
                     }
                 })
