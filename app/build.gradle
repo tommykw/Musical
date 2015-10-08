@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'checkstyle'
 
 android {
     compileSdkVersion 23
@@ -39,6 +40,11 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.0.1'
 
     //test
+    testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:1.9.5"
+    testCompile ("org.robolectric:robolectric:3+") {
+        exclude module: 'support-annotations'
+    }
 }
 buildscript {
     ext.kotlin_version = '0.14.449'
@@ -55,3 +61,17 @@ repositories {
         url 'https://oss.sonatype.org/content/repositories/snapshots/'
     }
 }
+
+task checkstyle (type: Checkstyle) {
+    configFile file("${project.rootDir}/config/checkstyle/checkstyle.xml")
+    source 'src'
+    include '**/*.java'
+    reports {
+        xml {
+            destination "${project.rootDir}/build/reports/checkstyle.xml"
+        }
+    }
+    classpath = files()
+}
+
+check.dependsOn 'checkstyle'
