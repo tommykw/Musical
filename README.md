@@ -1,3 +1,9 @@
 # KotlinSample
-kotlin sample application
+This application is kotlin sample application for Android
 
+# Libraries Used
+- RxJava
+- RxAndroid
+- KotterKnife
+- Retrofit
+- OkHttp
