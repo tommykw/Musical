@@ -38,6 +38,8 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     compile 'io.reactivex:rxjava:1.0.14'
     compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'com.facebook.stetho:stetho:1.2.0'
+    compile 'com.facebook.stetho:stetho-okhttp:1.2.0'
 
     androidTestCompile 'junit:junit:4.12'
     androidTestCompile "org.mockito:mockito-core:1.+"
