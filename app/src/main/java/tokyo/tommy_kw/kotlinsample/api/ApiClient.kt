@@ -13,35 +13,55 @@ import rx.Observable
 import rx.functions.Func1
 import tokyo.tommy_kw.kotlinsample.entity.Weather
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by tommy on 15/10/08.
  */
 class ApiClient {
-    private val ENDPOINT = "http://api.openweathermap.org/data/"
-    private val mRestAdapter:RestAdapter
-    private val mApiService:ApiService
+    companion object {
+        private val ENDPOINT = "http://api.openweathermap.org/data/"
+        private val CONNECT_TIMEOUT_MILLIS: Long = 10 * 1000
+        private val READ_TIMEOUT_MILLIS: Long = 20 * 1000
+        private var mApiService: ApiService
 
-    init {
-        val gsonBuilder = GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .registerTypeAdapter(Date::class.java, DateTypeAdapter()).create()
+        init {
+            mApiService = getRestAdapter().create(ApiService::class.java)
+        }
 
-        val client = OkHttpClient()
-        client.networkInterceptors().add(StethoInterceptor())
+        fun getApiClient(): ApiService {
+            if (mApiService != null) {
+                return mApiService
+            }
 
-        mRestAdapter = RestAdapter.Builder()
-                .setEndpoint(ENDPOINT)
-                .setConverter(GsonConverter(gsonBuilder))
-                .setLogLevel(RestAdapter.LogLevel.FULL)
-                .setLog(AndroidLog("=NETWORK="))
-                .setClient(OkClient(client))
-                .build();
+            mApiService = getRestAdapter().create(ApiService::class.java)
+            return mApiService
+        }
 
-        mApiService = mRestAdapter.create(ApiService::class.java)
-    }
+        fun getOkClient(): OkClient {
+            val client = OkHttpClient()
+            client.setConnectTimeout(CONNECT_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
+            client.setReadTimeout(READ_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
+            client.networkInterceptors().add(StethoInterceptor())
+            return OkClient(client)
+        }
 
-    fun getWeather(): Observable<Weather> {
-        return mApiService.getWeather();
+        fun getWeather(): Observable<Weather> {
+            return mApiService.getWeather()
+        }
+
+        private fun getRestAdapter(): RestAdapter {
+            val gsonBuilder = GsonBuilder()
+                    .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                    .registerTypeAdapter(Date::class.java, DateTypeAdapter()).create()
+
+            return RestAdapter.Builder()
+                    .setEndpoint(ENDPOINT)
+                    .setConverter(GsonConverter(gsonBuilder))
+                    .setLogLevel(RestAdapter.LogLevel.FULL)
+                    .setLog(AndroidLog("=NETWORK="))
+                    .setClient(getOkClient())
+                    .build();
+        }
     }
 }
