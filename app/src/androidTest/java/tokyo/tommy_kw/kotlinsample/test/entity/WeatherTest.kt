@@ -9,6 +9,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
+import tokyo.tommy_kw.kotlinsample.entity.Weather
 
 /**
  * Created by tommy on 15/10/09.
