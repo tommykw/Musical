@@ -26,6 +26,19 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'LICENSE.txt'
+    }
 }
 
 dependencies {
@@ -41,9 +54,12 @@ dependencies {
     compile 'com.facebook.stetho:stetho:1.2.0'
     compile 'com.facebook.stetho:stetho-okhttp:1.2.0'
 
+    androidTestCompile 'com.android.support.test:runner:0.3'
+    androidTestCompile 'com.android.support.test:rules:0.3'
+    androidTestCompile 'com.android.support:support-annotations:23.+'
     androidTestCompile 'junit:junit:4.12'
-    androidTestCompile "org.mockito:mockito-core:1.+"
-    androidTestCompile ("org.robolectric:robolectric:3+") {
+    androidTestCompile "org.mockito:mockito-core:1.10.19"
+    androidTestCompile ("org.robolectric:robolectric:2.4") {
         exclude module: 'support-annotations'
     }
 }
