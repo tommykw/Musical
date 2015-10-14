@@ -16,6 +16,7 @@ import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import butterknife.bindView
+import com.firebase.client.Firebase
 import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
         mNavigationView.setNavigationItemSelectedListener(this)
 
+        writeToFirebase()
         fetchWeather()
     }
 
@@ -134,5 +136,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                         }
                     }
                 })
+    }
+
+    private fun writeToFirebase() {
+        val firebase = Firebase(Constant.FIREBASE_SAMPLE_URL);
+        firebase.child("message").setValue("hoge");
     }
 }

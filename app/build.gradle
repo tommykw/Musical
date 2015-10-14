@@ -31,6 +31,7 @@ android {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE.txt'
         exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/notice.txt'
@@ -53,6 +54,7 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.0.1'
     compile 'com.facebook.stetho:stetho:1.2.0'
     compile 'com.facebook.stetho:stetho-okhttp:1.2.0'
+    compile 'com.firebase:firebase-client-android:2.4.0+'
 
     androidTestCompile 'com.android.support.test:runner:0.3'
     androidTestCompile 'com.android.support.test:rules:0.3'

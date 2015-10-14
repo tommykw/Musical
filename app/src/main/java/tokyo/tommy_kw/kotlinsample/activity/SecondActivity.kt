@@ -5,6 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
+import com.firebase.client.DataSnapshot
+import com.firebase.client.Firebase
+import com.firebase.client.FirebaseError
+import com.firebase.client.ValueEventListener
+import tokyo.tommy_kw.kotlinsample.Constant
 import tokyo.tommy_kw.kotlinsample.R
 
 /**
@@ -22,6 +27,18 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
-        Toast.makeText(this@SecondActivity, getIntent().getStringExtra("INTENT_ARG_MESSAGE"), Toast.LENGTH_SHORT).show()
+
+        if (getIntent().getStringExtra("INTENT_ARG_MESSAGE") != null) {
+            Toast.makeText(this@SecondActivity, getIntent().getStringExtra("INTENT_ARG_MESSAGE"), Toast.LENGTH_SHORT).show()
+
+            val firebase = Firebase(Constant.FIREBASE_SAMPLE_URL);
+            firebase.child("message").addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    android.widget.Toast.makeText(this@SecondActivity, snapshot.getValue().toString(), android.widget.Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onCancelled(error: FirebaseError) { }
+            });
+        }
     }
 }

@@ -17,5 +17,7 @@ class Constant {
         val NAV_SHARE = "share"
         val NAV_SEND = "send"
         fun getUuid() = UUID.randomUUID()
+
+        val FIREBASE_SAMPLE_URL = "https://boiling-fire-7413.firebaseio.com/"
     }
 }
