@@ -8,6 +8,8 @@ This application is kotlin sample application for Android
 - KotterKnife
 - Retrofit
 - OkHttp
+- Stetho
+- Firebase
 - JUnit4
 - Mojito
 - Robolectric
