@@ -1,0 +1,29 @@
+<resources>
+    <array name="landing_bg">
+        <item>@color/colorPrimary</item>
+        <item>@color/colorPrimaryDark</item>
+        <item>@color/colorAccent</item>
+        <item>@color/colorGray</item>
+    </array>
+
+    <array name="icons">
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+    </array>
+
+    <string-array name="titles" >
+        <item>title1</item>
+        <item>title2</item>
+        <item>title3</item>
+        <item>title4</item>
+    </string-array>
+
+    <string-array name="hints" >
+        <item>t1</item>
+        <item>t2</item>
+        <item>t3</item>
+        <item>t4</item>
+    </string-array>
+</resources>
