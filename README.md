@@ -13,3 +13,5 @@ This application is kotlin sample application for Android
 - JUnit4
 - Mojito
 - Robolectric
+- Sppon
+- Robotium

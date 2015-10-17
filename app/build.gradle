@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'checkstyle'
+apply plugin: 'spoon'
 
 android {
     compileSdkVersion 23
@@ -64,6 +65,9 @@ dependencies {
     androidTestCompile ("org.robolectric:robolectric:2.4") {
         exclude module: 'support-annotations'
     }
+
+    androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.5.2'
+    androidTestCompile 'com.squareup.spoon:spoon-client:1.2.0'
 }
 buildscript {
     ext.kotlin_version = '0.14.449'
@@ -79,6 +83,12 @@ repositories {
     maven {
         url 'https://oss.sonatype.org/content/repositories/snapshots/'
     }
+}
+
+spoon {
+    debug = true
+    className = 'fully.qualified.TestCase'
+    methodName = 'execSpoon'
 }
 
 task checkstyle (type: Checkstyle) {
