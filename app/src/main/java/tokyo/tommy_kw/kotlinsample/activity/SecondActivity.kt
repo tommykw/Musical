@@ -9,8 +9,8 @@ import com.firebase.client.DataSnapshot
 import com.firebase.client.Firebase
 import com.firebase.client.FirebaseError
 import com.firebase.client.ValueEventListener
-import tokyo.tommy_kw.kotlinsample.constant.Constant
 import tokyo.tommy_kw.kotlinsample.R
+import tokyo.tommy_kw.kotlinsample.constant.Constant
 
 /**
  * Created by tommy on 15/10/06.
@@ -18,7 +18,7 @@ import tokyo.tommy_kw.kotlinsample.R
 class SecondActivity : AppCompatActivity() {
     companion object {
         val INTENT_ARG_MESSAGE = "INTENT_ARG_MESSAGE"
-        fun makeIntent (context: Context, message: String): Intent {
+        fun makeIntent(context: Context, message: String): Intent {
             return Intent(context, SecondActivity::class.java)
                     .putExtra(INTENT_ARG_MESSAGE, message)
         }
@@ -28,16 +28,17 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        if (getIntent().getStringExtra("INTENT_ARG_MESSAGE") != null) {
-            Toast.makeText(this@SecondActivity, getIntent().getStringExtra("INTENT_ARG_MESSAGE"), Toast.LENGTH_SHORT).show()
+        if (intent.getStringExtra("INTENT_ARG_MESSAGE") != null) {
+            Toast.makeText(this@SecondActivity, intent.getStringExtra("INTENT_ARG_MESSAGE"), Toast.LENGTH_SHORT).show()
 
             val firebase = Firebase(Constant.FIREBASE_SAMPLE_URL);
             firebase.child("message").addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    android.widget.Toast.makeText(this@SecondActivity, snapshot.getValue().toString(), android.widget.Toast.LENGTH_SHORT).show()
+                    android.widget.Toast.makeText(this@SecondActivity, snapshot.value.toString(), android.widget.Toast.LENGTH_SHORT).show()
                 }
 
-                override fun onCancelled(error: FirebaseError) { }
+                override fun onCancelled(error: FirebaseError) {
+                }
             });
         }
     }
