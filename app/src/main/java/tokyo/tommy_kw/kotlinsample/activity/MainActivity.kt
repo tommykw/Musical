@@ -20,7 +20,7 @@ import com.firebase.client.Firebase
 import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
-import tokyo.tommy_kw.kotlinsample.Constant
+import tokyo.tommy_kw.kotlinsample.constant.Constant
 import tokyo.tommy_kw.kotlinsample.R
 import tokyo.tommy_kw.kotlinsample.api.ApiClient
 import tokyo.tommy_kw.kotlinsample.entity.Weather

@@ -9,7 +9,7 @@ import com.firebase.client.DataSnapshot
 import com.firebase.client.Firebase
 import com.firebase.client.FirebaseError
 import com.firebase.client.ValueEventListener
-import tokyo.tommy_kw.kotlinsample.Constant
+import tokyo.tommy_kw.kotlinsample.constant.Constant
 import tokyo.tommy_kw.kotlinsample.R
 
 /**
