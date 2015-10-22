@@ -1,0 +1,15 @@
+{
+  "name": "stub-server",
+  "version": "1.0.0",
+  "description": "start stub server from this libraries",
+  "main": "index.js",
+  "dependencies": {
+    "stubcell": "^0.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tommy-kw",
+  "license": "ISC"
+}

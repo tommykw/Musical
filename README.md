@@ -15,3 +15,4 @@ This application is kotlin sample application for Android
 - Robolectric
 - Spoon
 - Robotium
+- stubcell

@@ -1,0 +1,14 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "user1",
+            "message": "hello i'm 1"
+        },
+        {
+            "id": 2,
+            "name": "user2",
+            "message": "hello i'm 2"
+        }
+    ]
+}
