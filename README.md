@@ -2,7 +2,7 @@
 This application is kotlin sample application for Android
 
 # Libraries Used
-- Kotlin M14
+- Kotlin 1.0-beta
 - RxJava
 - RxAndroid
 - KotterKnife
@@ -10,6 +10,7 @@ This application is kotlin sample application for Android
 - OkHttp
 - Stetho
 - Firebase
+- timber
 - JUnit4
 - Mojito
 - Robolectric

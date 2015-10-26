@@ -60,6 +60,7 @@ dependencies {
     compile 'com.facebook.stetho:stetho:1.2.0'
     compile 'com.facebook.stetho:stetho-okhttp:1.2.0'
     compile 'com.firebase:firebase-client-android:2.4.0+'
+    compile 'com.jakewharton.timber:timber:4.1.0'
 
     androidTestCompile 'com.android.support.test:runner:0.3'
     androidTestCompile 'com.android.support.test:rules:0.3'
