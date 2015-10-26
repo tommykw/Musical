@@ -11,6 +11,6 @@ interface ApiService {
     companion object {
         val VERSION = "2.5"
     }
-    @GET("/${VERSION}/weather?q=Tokyo,jp")
+    @GET("/2.5/weather?q=Tokyo,jp")
     fun getWeather() : Observable<Weather>
 }

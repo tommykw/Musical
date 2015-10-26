@@ -41,6 +41,10 @@ android {
         exclude 'META-INF/LGPL2.1'
         exclude 'LICENSE.txt'
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -70,7 +74,7 @@ dependencies {
     androidTestCompile 'com.squareup.spoon:spoon-client:1.2.0'
 }
 buildscript {
-    ext.kotlin_version = '0.14.449'
+    ext.kotlin_version = '1.0.0-beta-1038'
     repositories {
         mavenCentral()
     }
