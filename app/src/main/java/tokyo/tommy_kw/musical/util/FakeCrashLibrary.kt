@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.kotlinsample.util
+package tokyo.tommy_kw.musical.util
 
 /**
  * Created by tommy on 15/10/27.

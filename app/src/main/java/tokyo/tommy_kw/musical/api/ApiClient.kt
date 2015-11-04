@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.kotlinsample.api
+package tokyo.tommy_kw.musical.api
 
 import com.facebook.stetho.okhttp.StethoInterceptor
 import com.google.gson.FieldNamingPolicy
@@ -11,7 +11,7 @@ import retrofit.client.OkClient
 import retrofit.converter.GsonConverter
 import rx.Observable
 import rx.functions.Func1
-import tokyo.tommy_kw.kotlinsample.entity.Weather
+import tokyo.tommy_kw.musical.entity.Weather
 import java.util.*
 import java.util.concurrent.TimeUnit
 

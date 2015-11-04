@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.kotlinsample
+package tokyo.tommy_kw.musical
 
 import android.app.Application
 import android.test.ApplicationTestCase

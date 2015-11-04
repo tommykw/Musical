@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.kotlinsample;
+package tokyo.tommy_kw.musical;
 
 import org.junit.Test;
 

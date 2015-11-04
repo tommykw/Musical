@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.kotlinsample.test.entity
+package tokyo.tommy_kw.musical.test.entity
 
 import android.support.test.runner.AndroidJUnit4
 import com.google.gson.Gson
@@ -9,7 +9,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
-import tokyo.tommy_kw.kotlinsample.entity.Weather
+import tokyo.tommy_kw.musical.entity.Weather
 
 /**
  * Created by tommy on 15/10/09.

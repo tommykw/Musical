@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.kotlinsample.activity
+package tokyo.tommy_kw.musical.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -20,10 +20,10 @@ import com.firebase.client.Firebase
 import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
-import tokyo.tommy_kw.kotlinsample.R
-import tokyo.tommy_kw.kotlinsample.api.ApiClient
-import tokyo.tommy_kw.kotlinsample.constant.Constant
-import tokyo.tommy_kw.kotlinsample.entity.Weather
+import tokyo.tommy_kw.musical.R
+import tokyo.tommy_kw.musical.api.ApiClient
+import tokyo.tommy_kw.musical.constant.Constant
+import tokyo.tommy_kw.musical.entity.Weather
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     val mToolbar: Toolbar by bindView(R.id.toolbar)

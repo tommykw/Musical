@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.kotlinsample.constant
+package tokyo.tommy_kw.musical.constant
 
 import java.util.*
 

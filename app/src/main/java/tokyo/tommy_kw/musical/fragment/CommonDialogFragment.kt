@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.kotlinsample.fragment
+package tokyo.tommy_kw.musical.fragment
 
 import android.app.AlertDialog
 import android.app.Dialog

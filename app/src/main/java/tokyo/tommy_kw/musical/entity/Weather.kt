@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.kotlinsample.entity
+package tokyo.tommy_kw.musical.entity
 
 /**
  * Created by tommy on 15/10/07.

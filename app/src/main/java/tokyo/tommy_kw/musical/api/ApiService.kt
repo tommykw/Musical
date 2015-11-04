@@ -1,8 +1,8 @@
-package tokyo.tommy_kw.kotlinsample.api
+package tokyo.tommy_kw.musical.api
 
 import retrofit.http.GET
 import rx.Observable
-import tokyo.tommy_kw.kotlinsample.entity.Weather
+import tokyo.tommy_kw.musical.entity.Weather
 
 /**
  * Created by tommy on 15/10/07.
