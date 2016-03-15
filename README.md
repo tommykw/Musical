@@ -12,7 +12,7 @@ This application is kotlin sample application for Android
 - Firebase
 - timber
 - JUnit4
-- Mojito
+- Mockito
 - Robolectric
 - Spoon
 - Robotium
