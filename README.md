@@ -4,7 +4,7 @@
 This application is kotlin sample application for Android
 
 # Libraries Used
-- Kotlin 1.0-beta
+- Kotlin 
 - RxJava
 - RxAndroid
 - KotterKnife
