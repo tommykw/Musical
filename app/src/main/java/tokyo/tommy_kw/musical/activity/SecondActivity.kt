@@ -10,7 +10,7 @@ import com.firebase.client.Firebase
 import com.firebase.client.FirebaseError
 import com.firebase.client.ValueEventListener
 import tokyo.tommy_kw.musical.R
-import tokyo.tommy_kw.musical.constant.Constant
+import tokyo.tommy_kw.musical.constant.Constants
 
 /**
  * Created by tommy on 15/10/06.
@@ -31,7 +31,7 @@ class SecondActivity : AppCompatActivity() {
         if (intent.getStringExtra("INTENT_ARG_MESSAGE") != null) {
             Toast.makeText(this@SecondActivity, intent.getStringExtra("INTENT_ARG_MESSAGE"), Toast.LENGTH_SHORT).show()
 
-            val firebase = Firebase(Constant.FIREBASE_SAMPLE_URL);
+            val firebase = Firebase(Constants.FIREBASE_SAMPLE_URL);
             firebase.child("message").addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     android.widget.Toast.makeText(this@SecondActivity, snapshot.value.toString(), android.widget.Toast.LENGTH_SHORT).show()

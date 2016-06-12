@@ -5,7 +5,7 @@ import java.util.*
 /**
  * Created by tommy on 15/10/06.
  */
-class Constant {
+class Constants {
     companion object {
         val MAIN_ACTIVITY_NAME = "main_activity"
         val SECOND_ACTIVITY_NAME = "second_activity"

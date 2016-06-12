@@ -22,7 +22,7 @@ import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import tokyo.tommy_kw.musical.R
 import tokyo.tommy_kw.musical.api.ApiClient
-import tokyo.tommy_kw.musical.constant.Constant
+import tokyo.tommy_kw.musical.constant.Constants
 import tokyo.tommy_kw.musical.entity.Weather
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -91,22 +91,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val intent: Intent
 
         if (id == R.id.nav_camara) {
-            intent = SecondActivity.makeIntent(this@MainActivity, Constant.NAV_CAMERA)
+            intent = SecondActivity.makeIntent(this@MainActivity, Constants.NAV_CAMERA)
             startActivity(intent)
         } else if (id == R.id.nav_gallery) {
-            intent = SecondActivity.makeIntent(this@MainActivity, Constant.NAV_GALLERY)
+            intent = SecondActivity.makeIntent(this@MainActivity, Constants.NAV_GALLERY)
             startActivity(intent)
         } else if (id == R.id.nav_slideshow) {
-            intent = SecondActivity.makeIntent(this@MainActivity, Constant.NAV_SLIDESHOW)
+            intent = SecondActivity.makeIntent(this@MainActivity, Constants.NAV_SLIDESHOW)
             startActivity(intent)
         } else if (id == R.id.nav_manage) {
-            intent = SecondActivity.makeIntent(this@MainActivity, Constant.NAV_MANAGE)
+            intent = SecondActivity.makeIntent(this@MainActivity, Constants.NAV_MANAGE)
             startActivity(intent)
         } else if (id == R.id.nav_share) {
-            intent = SecondActivity.makeIntent(this@MainActivity, Constant.NAV_SHARE)
+            intent = SecondActivity.makeIntent(this@MainActivity, Constants.NAV_SHARE)
             startActivity(intent)
         } else if (id == R.id.nav_send) {
-            intent = SecondActivity.makeIntent(this@MainActivity, Constant.NAV_SEND)
+            intent = SecondActivity.makeIntent(this@MainActivity, Constants.NAV_SEND)
             startActivity(intent)
         }
 
@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun writeToFirebase() {
-        val firebase = Firebase(Constant.FIREBASE_SAMPLE_URL);
+        val firebase = Firebase(Constants.FIREBASE_SAMPLE_URL);
         firebase.child("message").setValue("hoge");
     }
 }

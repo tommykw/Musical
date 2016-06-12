@@ -25,7 +25,7 @@ class CommonDialogFragment : DialogFragment(), DialogInterface.OnClickListener {
             val bundle = Bundle()
             bundle.putString("title", title)
             bundle.putString("message", message)
-            bundle.putString("type", type.name())
+            bundle.putString("type", type.name)
             fragment.arguments = bundle
             fragment.setTargetFragment(fragment, 0)
             return fragment
@@ -39,7 +39,7 @@ class CommonDialogFragment : DialogFragment(), DialogInterface.OnClickListener {
         val type = arguments.getString("type")
         val dialog = AlertDialog.Builder(activity).setTitle(title).setMessage(message).setPositiveButton("OK", this)
 
-        if (type == ButtonType.NEGATIVE.name()) {
+        if (type == ButtonType.NEGATIVE.name) {
             dialog.setNegativeButton("Cancel", this)
         }
 
