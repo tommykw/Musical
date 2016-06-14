@@ -17,7 +17,7 @@ import tokyo.tommy_kw.musical.constant.Constants
  */
 class SecondActivity : AppCompatActivity() {
     companion object {
-        val INTENT_ARG_MESSAGE = "INTENT_ARG_MESSAGE"
+        const val INTENT_ARG_MESSAGE = "INTENT_ARG_MESSAGE"
         fun makeIntent(context: Context, message: String): Intent {
             return Intent(context, SecondActivity::class.java)
                     .putExtra(INTENT_ARG_MESSAGE, message)
