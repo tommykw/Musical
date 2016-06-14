@@ -1,6 +1,5 @@
 package tokyo.tommy_kw.musical.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.NavigationView
@@ -22,6 +21,7 @@ import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import tokyo.tommy_kw.musical.R
 import tokyo.tommy_kw.musical.api.ApiClient
+import tokyo.tommy_kw.musical.application.Router
 import tokyo.tommy_kw.musical.constant.Constants
 import tokyo.tommy_kw.musical.entity.Weather
 
@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(mToolbar)
         mFab.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
-                Toast.makeText(this@MainActivity, "Replace with your own action", Toast.LENGTH_SHORT).show()
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show()
             }
         })
@@ -86,28 +85,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     @SuppressWarnings("StatementWithEmptyBody")
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
-        val id = item.itemId
-        val intent: Intent
-
-        if (id == R.id.nav_camara) {
-            intent = SecondActivity.makeIntent(this@MainActivity, Constants.NAV_CAMERA)
-            startActivity(intent)
-        } else if (id == R.id.nav_gallery) {
-            intent = SecondActivity.makeIntent(this@MainActivity, Constants.NAV_GALLERY)
-            startActivity(intent)
-        } else if (id == R.id.nav_slideshow) {
-            intent = SecondActivity.makeIntent(this@MainActivity, Constants.NAV_SLIDESHOW)
-            startActivity(intent)
-        } else if (id == R.id.nav_manage) {
-            intent = SecondActivity.makeIntent(this@MainActivity, Constants.NAV_MANAGE)
-            startActivity(intent)
-        } else if (id == R.id.nav_share) {
-            intent = SecondActivity.makeIntent(this@MainActivity, Constants.NAV_SHARE)
-            startActivity(intent)
-        } else if (id == R.id.nav_send) {
-            intent = SecondActivity.makeIntent(this@MainActivity, Constants.NAV_SEND)
-            startActivity(intent)
+        when (item.itemId) {
+            R.id.nav_camara -> Router.routeCamera(this)
+            R.id.nav_gallery -> Router.routeGallery(this)
+            R.id.nav_slideshow -> Router.routeSlideShow(this)
+            R.id.nav_manage -> Router.routeManage(this)
+            R.id.nav_share -> Router.routeShare(this)
+            R.id.nav_send -> Router.routeSend(this)
         }
 
         mDrawer.closeDrawer(GravityCompat.START)
