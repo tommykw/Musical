@@ -34,7 +34,7 @@ class SecondActivity : AppCompatActivity() {
             val firebase = Firebase(Constants.FIREBASE_SAMPLE_URL);
             firebase.child("message").addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    android.widget.Toast.makeText(this@SecondActivity, snapshot.value.toString(), android.widget.Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SecondActivity, snapshot.value.toString(), Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onCancelled(error: FirebaseError) {

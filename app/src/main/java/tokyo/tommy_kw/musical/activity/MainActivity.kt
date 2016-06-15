@@ -83,15 +83,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return super.onOptionsItemSelected(item)
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_camara -> Router.routeCamera(this)
-            R.id.nav_gallery -> Router.routeGallery(this)
-            R.id.nav_slideshow -> Router.routeSlideShow(this)
-            R.id.nav_manage -> Router.routeManage(this)
-            R.id.nav_share -> Router.routeShare(this)
-            R.id.nav_send -> Router.routeSend(this)
+            R.id.nav_camara -> Router.routeToCamera(this)
+            R.id.nav_gallery -> Router.routeToGallery(this)
+            R.id.nav_slideshow -> Router.routeToSlideShow(this)
+            R.id.nav_manage -> Router.routeToManage(this)
+            R.id.nav_share -> Router.routeToShare(this)
+            R.id.nav_send -> Router.routeToSend(this)
         }
 
         mDrawer.closeDrawer(GravityCompat.START)
