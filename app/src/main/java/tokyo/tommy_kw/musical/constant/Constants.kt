@@ -5,19 +5,17 @@ import java.util.*
 /**
  * Created by tommy on 15/10/06.
  */
-class Constants {
-    companion object {
-        val MAIN_ACTIVITY_NAME = "main_activity"
-        val SECOND_ACTIVITY_NAME = "second_activity"
-        val CONTENT_FRAGMENT_NAME = "content_fragment_name"
-        val NAV_CAMERA = "camera"
-        val NAV_GALLERY = "gallery"
-        val NAV_SLIDESHOW = "slideshow"
-        val NAV_MANAGE = "manage"
-        val NAV_SHARE = "share"
-        val NAV_SEND = "send"
-        fun getUuid() = UUID.randomUUID()
+object Constants {
+    const val MAIN_ACTIVITY_NAME = "main_activity"
+    const val SECOND_ACTIVITY_NAME = "second_activity"
+    const val CONTENT_FRAGMENT_NAME = "content_fragment_name"
+    const val NAV_CAMERA = "camera"
+    const val NAV_GALLERY = "gallery"
+    const val NAV_SLIDESHOW = "slideshow"
+    const val NAV_MANAGE = "manage"
+    const val NAV_SHARE = "share"
+    const val NAV_SEND = "send"
+    const val FIREBASE_SAMPLE_URL = "https://boiling-fire-7413.firebaseio.com/"
 
-        val FIREBASE_SAMPLE_URL = "https://boiling-fire-7413.firebaseio.com/"
-    }
+    fun getUuid() = UUID.randomUUID()
 }

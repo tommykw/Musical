@@ -10,7 +10,6 @@ import retrofit.android.AndroidLog
 import retrofit.client.OkClient
 import retrofit.converter.GsonConverter
 import rx.Observable
-import rx.functions.Func1
 import tokyo.tommy_kw.musical.entity.Weather
 import java.util.*
 import java.util.concurrent.TimeUnit

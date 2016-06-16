@@ -5,15 +5,16 @@ package tokyo.tommy_kw.musical.util
  */
 class FakeCrashLibrary {
     companion object {
-        public fun log(priority: Int, tag: String, message: String) {
+        fun log(priority: Int, tag: String, message: String) {
         }
 
-        public fun logWarning(t: Throwable) {
+        fun logWarning(t: Throwable) {
         }
 
-        public fun logError(t: Throwable) {
+        fun logError(t: Throwable) {
         }
     }
+
     private fun FakeCrashLibrary() {
         throw AssertionError("no instance")
     }
