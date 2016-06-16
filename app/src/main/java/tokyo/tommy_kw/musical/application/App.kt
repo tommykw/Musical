@@ -1,6 +1,7 @@
 package tokyo.tommy_kw.musical.application
 
 import android.app.Application
+import android.util.Log
 import com.facebook.stetho.BuildConfig
 import com.facebook.stetho.Stetho
 import com.firebase.client.Firebase

@@ -20,8 +20,7 @@ class CommonDialogFragment : DialogFragment(), DialogInterface.OnClickListener {
         enum class ButtonType {
             POSITIVE, NEGATIVE
         }
-
-        fun newInstance(title: String, message: String, type: ButtonType, fragment: Fragment): CommonDialogFragment {
+        fun newInstance(title:String, message:String, type:ButtonType, fragment: Fragment):CommonDialogFragment {
             val fragment = CommonDialogFragment()
             val bundle = Bundle()
             bundle.putString("title", title)
@@ -48,7 +47,7 @@ class CommonDialogFragment : DialogFragment(), DialogInterface.OnClickListener {
     }
 
     override fun onClick(dialog: DialogInterface, which: Int) {
-        val listener: OnDialogClickListener
+        val listener:OnDialogClickListener
 
         try {
             if (targetFragment != null) {

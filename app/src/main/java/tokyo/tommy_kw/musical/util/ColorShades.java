@@ -3,24 +3,26 @@ package tokyo.tommy_kw.musical.util;
 import android.graphics.Color;
 
 /**
+ *
  * Source from : https://gist.github.com/cooltechworks/4f37021b1216f773daf8
  * Color shades will provide all the intermediate colors between two colors. It just requires a decimal value between 0.0 to 1.0
  * and it provides the exact shade combination of the two color with this shade value.
- * <p/>
- * Textual explanation :
- * <p/>
- * |===============|===============|===============|===============|
- * White          LtGray          Gray            DkGray           Black
- * <p/>
- * 0                0.25            0.5             0.75            1
- * <p/>
- * Given two colors as White and Black,
- * and shade
- * as 0    gives White
- * as 0.25 gives Light gray
- * as 0.5  gives Gray
- * as 0.75 gives Dark gray
- * as 1    gives Black.
+ *
+ *  Textual explanation :
+ *
+ *      |===============|===============|===============|===============|
+ *     White          LtGray          Gray            DkGray           Black
+ *
+ *     0                0.25            0.5             0.75            1
+ *
+ *     Given two colors as White and Black,
+ *     and shade
+ *          as 0    gives White
+ *          as 0.25 gives Light gray
+ *          as 0.5  gives Gray
+ *          as 0.75 gives Dark gray
+ *          as 1    gives Black.
+ *
  */
 public class ColorShades {
 
@@ -69,7 +71,6 @@ public class ColorShades {
 
     /**
      * Generates the shade for the given color.
-     *
      * @return the int value of the shade.
      */
     public int generate() {
@@ -87,18 +88,18 @@ public class ColorShades {
         int diffB = toB - fromB;
 
 
-        int R = fromR + (int) ((diffR * mShade));
-        int G = fromG + (int) ((diffG * mShade));
-        int B = fromB + (int) ((diffB * mShade));
 
-        return Color.rgb(R, G, B);
+        int R = fromR + (int) (( diffR * mShade));
+        int G = fromG + (int) (( diffG * mShade));
+        int B = fromB + (int) (( diffB * mShade));
+
+        return  Color.rgb(R, G, B);
 
     }
 
 
     /**
      * Assumes the from and to color are inverted before generating the shade.
-     *
      * @return the int value of the inverted shade.
      */
     public int generateInverted() {
@@ -116,17 +117,16 @@ public class ColorShades {
         int diffG = toG - fromG;
         int diffB = toB - fromB;
 
-        int R = toR - (int) ((diffR * mShade));
-        int G = toG - (int) ((diffG * mShade));
-        int B = toB - (int) ((diffB * mShade));
+        int R = toR - (int) (( diffR * mShade));
+        int G = toG - (int) (( diffG * mShade));
+        int B = toB - (int) (( diffB * mShade));
 
-        return Color.rgb(R, G, B);
+        return  Color.rgb(R, G, B);
 
     }
 
     /**
      * Gets the String equivalent of the generated shade
-     *
      * @return String value of the shade
      */
     public String generateInvertedString() {
@@ -135,7 +135,6 @@ public class ColorShades {
 
     /**
      * Gets the inverted String equivalent of the generated shade
-     *
      * @return String value of the shade
      */
     public String generateString() {

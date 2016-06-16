@@ -14,7 +14,6 @@ class FakeCrashLibrary {
         fun logError(t: Throwable) {
         }
     }
-
     private fun FakeCrashLibrary() {
         throw AssertionError("no instance")
     }
