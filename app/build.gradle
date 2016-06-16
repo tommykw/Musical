@@ -4,13 +4,13 @@ apply plugin: 'checkstyle'
 apply plugin: 'spoon'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
 
     defaultConfig {
         applicationId "tokyo.tommy_kw.musical"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0.0"
     }
@@ -80,7 +80,7 @@ dependencies {
 }
 buildscript {
     ext.kotlin_version = '1.0.2'
-    ext.android_support_version = '23.4.0'
+    ext.android_support_version = '24.0.0'
     repositories {
         mavenCentral()
     }
