@@ -20,4 +20,5 @@ This application is kotlin sample application for Android
 - Robotium
 - [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html)
  - The Espresso UI testing framework provided by Android Testing Support Library
-- stubcell
+- [stubcell](https://github.com/yosuke-furukawa/stubcell)
+ - The stubcell simple mock server
