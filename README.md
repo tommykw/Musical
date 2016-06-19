@@ -17,7 +17,8 @@ This application is kotlin sample application for Android
 - Mockito
 - Robolectric
 - Spoon
-- Robotium
+- [Robotium](https://github.com/RobotiumTech/robotium)
+ - Android UI Testing framework
 - [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html)
  - The Espresso UI testing framework provided by Android Testing Support Library
 - [stubcell](https://github.com/yosuke-furukawa/stubcell)
