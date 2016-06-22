@@ -4,7 +4,8 @@
 This application is kotlin sample application for Android
 
 # Libraries Used
-- Kotlin 
+- [Kotlin](https://kotlinlang.org/)
+ - Statically typed programming language for the JVM
 - RxJava
 - RxAndroid
 - KotterKnife
