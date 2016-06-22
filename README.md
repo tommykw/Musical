@@ -6,15 +6,19 @@ This application is kotlin sample application for Android
 # Libraries Used
 - [Kotlin](https://kotlinlang.org/)
  - Statically typed programming language for the JVM
-- RxJava
-- RxAndroid
+- [RxJava](https://github.com/ReactiveX/RxJava)
+ - Reactive Extensions for the JVM
+- [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+ - RxJava bindings for Android
 - KotterKnife
 - Retrofit
 - OkHttp
 - Stetho
 - Firebase
-- timber
-- JUnit4
+- [timber](https://github.com/JakeWharton/timber)
+ - Simple logger for Android
+- [JUnit4](http://junit.org/junit4/)
+ - xUnit test patterns for unit testing framewordk
 - [Mockito](http://mockito.org/)
  - Mocking framework for unit tests
 - [Robolectric](http://robolectric.org/)
