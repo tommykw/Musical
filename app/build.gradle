@@ -66,6 +66,11 @@ dependencies {
     compile 'com.firebase:firebase-client-android:2.5.2'
     compile 'com.jakewharton.timber:timber:4.1.0'
 
+    // anko
+    compile 'org.jetbrains.anko:anko-sdk15:0.9'
+    compile 'org.jetbrains.anko:anko-support-v4:0.9'
+    compile 'org.jetbrains.anko:anko-appcompat-v7:0.9'
+
     testCompile "com.android.support:support-annotations:$android_support_version"
     testCompile 'com.android.support.test:runner:0.5'
     testCompile 'com.android.support.test:rules:0.5'

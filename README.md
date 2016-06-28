@@ -10,6 +10,8 @@ This application is kotlin sample application for Android
  - Reactive Extensions for the JVM
 - [RxAndroid](https://github.com/ReactiveX/RxAndroid)
  - RxJava bindings for Android
+- [anko](https://github.com/Kotlin/anko)
+ - Anko is a library which makes Android application development faster and easier
 - KotterKnife
 - Retrofit
 - OkHttp
