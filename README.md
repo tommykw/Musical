@@ -13,10 +13,13 @@ This application is kotlin sample application for Android
 - [anko](https://github.com/Kotlin/anko)
  - Anko is a library which makes Android application development faster and easier
 - KotterKnife
-- Retrofit
-- OkHttp
-- Stetho
-- Firebase
+- [Retrofit](https://github.com/square/retrofit)
+ - Type-safe HTTP client for Android
+- [OkHttp](https://github.com/square/okhttp)
+ - An HTTP+HTTP2 client for Android
+- [Stetho](http://facebook.github.io/stetho/)
+ - A debug bridge for Andorid applications
+- [Firebase](https://github.com/firebase/)
 - [timber](https://github.com/JakeWharton/timber)
  - Simple logger for Android
 - [JUnit4](http://junit.org/junit4/)
