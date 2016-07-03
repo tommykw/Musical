@@ -12,7 +12,8 @@ This application is kotlin sample application for Android
  - RxJava bindings for Android
 - [anko](https://github.com/Kotlin/anko)
  - Anko is a library which makes Android application development faster and easier
-- KotterKnife
+- [KotterKnife](https://github.com/JakeWharton/kotterknife)
+ - View injection library for Android
 - [Retrofit](https://github.com/square/retrofit)
  - Type-safe HTTP client for Android
 - [OkHttp](https://github.com/square/okhttp)
