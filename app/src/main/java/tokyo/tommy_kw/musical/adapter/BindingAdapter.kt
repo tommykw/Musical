@@ -2,6 +2,7 @@ package tokyo.tommy_kw.musical.adapter
 
 import android.databinding.ViewDataBinding
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import android.view.ViewGroup
 
 /**
@@ -24,6 +25,13 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
     class ViewHolder(val binding: ViewDataBinding,
                      val variable: Int): RecyclerView.ViewHolder(binding.root) {
 
+        fun bindTo(item: Any,
+                   pos: Int,
+                   //onBind: OnBindListener?,
+                   onClick: View.OnClickListener?,
+                   onLongClick: View.OnLongClickListener
+                   ) {
 
+        }
     }
 }
