@@ -1,5 +1,6 @@
 package tokyo.tommy_kw.musical.adapter
 
+import android.content.DialogInterface
 import android.databinding.ViewDataBinding
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -20,6 +21,12 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder? {
         throw UnsupportedOperationException()
+    }
+
+    class Builder<T : Any> (val list:List<T>, val variable: Int) {
+        private val map: MutableMap<Class<*>, Int> = mutableMapOf()
+        private var onClick: View.OnClickListener? = null
+        private var onLongClick: View.OnLongClickListener? = null
     }
 
     class ViewHolder(val binding: ViewDataBinding,
