@@ -50,4 +50,8 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
     interface LayoutHandler {
         @LayoutRes fun getItemLayout(item: Any, position: Int): Int
     }
+
+    private class WeakReferenceOnListChagendCallback<T : Any>(private val adapter: BindingAdapter<T>) {
+        
+    }
 }
