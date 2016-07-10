@@ -6,6 +6,7 @@ import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import java.lang.ref.WeakReference
 
 /**
  * [WIP]
@@ -52,6 +53,6 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
     }
 
     private class WeakReferenceOnListChagendCallback<T : Any>(private val adapter: BindingAdapter<T>) {
-        
+        private val adapterRef = WeakReference<BindingAdapter<T>>(adapter)
     }
 }
