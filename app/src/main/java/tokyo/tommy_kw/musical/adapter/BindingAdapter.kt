@@ -1,7 +1,9 @@
 package tokyo.tommy_kw.musical.adapter
 
 import android.content.DialogInterface
+import android.databinding.ObservableList
 import android.databinding.ViewDataBinding
+import android.os.Looper
 import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -52,7 +54,33 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
         @LayoutRes fun getItemLayout(item: Any, position: Int): Int
     }
 
-    private class WeakReferenceOnListChagendCallback<T : Any>(private val adapter: BindingAdapter<T>) {
+    private class WeakReferenceOnListChangedCallback<T : Any>(private val adapter: BindingAdapter<T>): ObservableList.OnListChangedCallback<ObservableList<T>>() {
+        override fun onItemRangeChanged(sender: ObservableList<T>?, positionStart: Int, itemCount: Int) {
+            throw UnsupportedOperationException()
+        }
+
+        override fun onItemRangeInserted(sender: ObservableList<T>?, positionStart: Int, itemCount: Int) {
+            throw UnsupportedOperationException()
+        }
+
+        override fun onItemRangeMoved(sender: ObservableList<T>?, fromPosition: Int, toPosition: Int, itemCount: Int) {
+            throw UnsupportedOperationException()
+        }
+
+        override fun onItemRangeRemoved(sender: ObservableList<T>?, positionStart: Int, itemCount: Int) {
+            throw UnsupportedOperationException()
+        }
+
         private val adapterRef = WeakReference<BindingAdapter<T>>(adapter)
+        private fun getAdapter(): BindingAdapter<T> {
+            if (Thread.currentThread() != Looper.getMainLooper().thread) {
+                throw IllegalStateException("you must modify the ObservableList on io thread")
+            }
+            return adapterRef.get()
+        }
+
+        override fun onChanged(list: ObservableList<T>) =
+                getAdapter().notifyDataSetChanged()
+
     }
 }
