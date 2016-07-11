@@ -56,7 +56,7 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
 
     private class WeakReferenceOnListChangedCallback<T : Any>(private val adapter: BindingAdapter<T>): ObservableList.OnListChangedCallback<ObservableList<T>>() {
         override fun onItemRangeChanged(sender: ObservableList<T>?, positionStart: Int, itemCount: Int) {
-            throw UnsupportedOperationException()
+            return getAdapter().notifyItemRangeChanged(positionStart, itemCount)
         }
 
         override fun onItemRangeInserted(sender: ObservableList<T>?, positionStart: Int, itemCount: Int) {
