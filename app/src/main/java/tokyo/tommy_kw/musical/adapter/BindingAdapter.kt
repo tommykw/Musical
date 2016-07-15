@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.databinding.ObservableList
 import android.databinding.ViewDataBinding
 import android.os.Looper
+import android.support.annotation.Keep
 import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -14,6 +15,7 @@ import java.lang.ref.WeakReference
  * [WIP]
  * Created by tommy on 2016/07/04.
  */
+@Keep
 class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>() {
     override fun getItemCount(): Int {
         throw UnsupportedOperationException()
@@ -53,6 +55,14 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
     interface LayoutHandler {
         @LayoutRes fun getItemLayout(item: Any, position: Int): Int
     }
+
+    private fun isForDataBinding(payloads: List<Any>?): Boolean {
+        if (payloads == null || payloads.size == 0) return false
+        payloads.forEach { if (it == DATA_INVALIDATION) return false }
+        return true
+    }
+
+    private val DATA_INVALIDATION = Any()
 
     private class WeakReferenceOnListChangedCallback<T : Any>(private val adapter: BindingAdapter<T>): ObservableList.OnListChangedCallback<ObservableList<T>>() {
         override fun onItemRangeChanged(sender: ObservableList<T>?, positionStart: Int, itemCount: Int) {
