@@ -33,6 +33,9 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
         private val map: MutableMap<Class<*>, Int> = mutableMapOf()
         private var onClick: View.OnClickListener? = null
         private var onLongClick: View.OnLongClickListener? = null
+        
+        fun map(clazz: Class<*>, @LayoutRes layout: Int) = apply { map.put(clazz, layout) }
+        inline fun <reified T: Any> map(@LayoutRes layout: Int) = map(T::class.java, layout)
 
         fun layoutHandler(layoutHandler: LayoutHandler) = apply {
 
