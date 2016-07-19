@@ -29,6 +29,7 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
         throw UnsupportedOperationException()
     }
 
+    @Keep
     class Builder<T : Any> (val list:List<T>, val variable: Int) {
         private val map: MutableMap<Class<*>, Int> = mutableMapOf()
         private var onClick: View.OnClickListener? = null
@@ -41,6 +42,16 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
         fun layoutHandler(layoutHandler: LayoutHandler) = apply {
 
         }
+
+        fun onBindListener(listener: OnBindListener) = apply {}
+
+//        fun onBind() = apply {
+//            onBindListener
+//        }
+    }
+
+    interface OnBindListener {
+        fun onBind(item: Any, view: View, position: Int)
     }
 
     class ViewHolder(val binding: ViewDataBinding,
