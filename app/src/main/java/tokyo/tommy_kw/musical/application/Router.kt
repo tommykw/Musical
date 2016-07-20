@@ -1,6 +1,7 @@
 package tokyo.tommy_kw.musical.application
 
 import android.content.Context
+import tokyo.tommy_kw.musical.activity.AnkoActivity
 import tokyo.tommy_kw.musical.activity.SecondActivity
 import tokyo.tommy_kw.musical.constant.Constants
 
@@ -22,4 +23,7 @@ object Router {
 
     fun routeToSend(context: Context) =
             context.startActivity(SecondActivity.makeIntent(context, Constants.NAV_SEND))
+
+    fun routeToAnko(context: Context) =
+            context.startActivity(AnkoActivity.makeIntent(context))
 }
