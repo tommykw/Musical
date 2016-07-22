@@ -54,6 +54,10 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
         fun onBind(item: Any, view: View, position: Int)
     }
 
+    interface OnClickListener {
+        fun onClick(item: Any, view :View, position: Int)
+    }
+
     interface OnLongClickListener {
         fun onLongClick(item: Any, view: View, position: Int)
     }
