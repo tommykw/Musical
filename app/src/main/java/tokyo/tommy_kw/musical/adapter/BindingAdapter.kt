@@ -50,6 +50,10 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
 //        }
     }
 
+    interface LayoutHandler {
+        @LayoutRes fun getItemLayout(item: Any, view: View, position: Int)
+    }
+
     interface OnBindListener {
         fun onBind(item: Any, view: View, position: Int)
     }
@@ -73,10 +77,6 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
                    ) {
 
         }
-    }
-
-    interface LayoutHandler {
-        @LayoutRes fun getItemLayout(item: Any, position: Int): Int
     }
 
     private fun isForDataBinding(payloads: List<Any>?): Boolean {
