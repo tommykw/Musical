@@ -21,6 +21,7 @@ This application is kotlin sample application for Android
 - [Stetho](http://facebook.github.io/stetho/)
  - A debug bridge for Andorid applications
 - [Firebase](https://github.com/firebase/)
+ - Firebase is a mobile platform that helps you quickly develop high-quality apps
 - [timber](https://github.com/JakeWharton/timber)
  - Simple logger for Android
 - [JUnit4](http://junit.org/junit4/)
