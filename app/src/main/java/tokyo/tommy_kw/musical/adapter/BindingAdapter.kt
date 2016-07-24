@@ -49,6 +49,10 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
 //            onBindListener
 //        }
     }
+    
+    class ItemPosition(val item: Any, val position: Int)
+
+    class ItemViewPosition(val item: Any, val view: View, val position: Int)
 
     interface LayoutHandler {
         @LayoutRes fun getItemLayout(item: Any, view: View, position: Int)
