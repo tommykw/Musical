@@ -45,11 +45,18 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
 
         fun onBindListener(listener: OnBindListener) = apply {}
 
+        inline fun onBind(crossinline method: ItemViewPosition.() -> Unit) = apply {
+            onBindListener(object : OnBindListener {
+                override fun onBind(item: Any, view: View, position: Int) {
+                    ItemViewPosition(item, view, position).method()
+                }
+            })
+        }
 //        fun onBind() = apply {
 //            onBindListener
 //        }
     }
-    
+
     class ItemPosition(val item: Any, val position: Int)
 
     class ItemViewPosition(val item: Any, val view: View, val position: Int)
