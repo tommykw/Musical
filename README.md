@@ -1,5 +1,3 @@
-[![MIT License](https://img.shields.io/github/license/tommykw/Musical.svg)](https://github.com/tommykw/Musical/blob/master/LICENSE)
-
 # KotlinSample
 This application is kotlin sample application for Android
 
