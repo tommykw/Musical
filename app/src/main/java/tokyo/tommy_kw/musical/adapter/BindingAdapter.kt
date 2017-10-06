@@ -120,7 +120,7 @@ class BindingAdapter<T : Any>(): RecyclerView.Adapter<BindingAdapter.ViewHolder>
             if (Thread.currentThread() != Looper.getMainLooper().thread) {
                 throw IllegalStateException("you must modify the ObservableList on io thread")
             }
-            return adapterRef.get()
+            return adapterRef.get()!!
         }
 
         override fun onChanged(list: ObservableList<T>) =

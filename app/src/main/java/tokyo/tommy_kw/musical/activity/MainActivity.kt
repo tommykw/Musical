@@ -14,8 +14,8 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import butterknife.bindView
 import com.firebase.client.Firebase
+import kotterknife.bindView
 import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
