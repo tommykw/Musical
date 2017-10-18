@@ -1,6 +1,6 @@
 package tokyo.tommy_kw.musical.api
 
-import retrofit.http.GET
+import retrofit2.http.GET
 import rx.Observable
 import tokyo.tommy_kw.musical.entity.Weather
 
