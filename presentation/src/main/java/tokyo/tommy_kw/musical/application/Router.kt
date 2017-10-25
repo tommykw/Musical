@@ -1,9 +1,9 @@
-package tokyo.tommy_kw.musical.application
+package com.github.tommykw.musical.application
 
 import android.content.Context
-import tokyo.tommy_kw.musical.activity.AnkoActivity
-import tokyo.tommy_kw.musical.activity.SecondActivity
-import tokyo.tommy_kw.musical.constant.Constants
+import com.github.tommykw.musical.activity.AnkoActivity
+import com.github.tommykw.musical.activity.SecondActivity
+import com.github.tommykw.musical.constant.Constants
 
 object Router {
     fun routeToCamera(context: Context) =

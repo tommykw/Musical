@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.musical.activity
+package com.github.tommykw.musical.activity
 
 import android.content.Context
 import android.content.Intent

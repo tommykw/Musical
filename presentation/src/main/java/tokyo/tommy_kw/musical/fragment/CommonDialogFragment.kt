@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.musical.fragment
+package com.github.tommykw.musical.fragment
 
 import android.app.AlertDialog
 import android.app.Dialog

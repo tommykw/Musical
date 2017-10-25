@@ -1,6 +1,5 @@
-package tokyo.tommy_kw.musical.adapter
+package com.github.tommykw.musical.adapter
 
-import android.content.DialogInterface
 import android.databinding.ObservableList
 import android.databinding.ViewDataBinding
 import android.os.Looper

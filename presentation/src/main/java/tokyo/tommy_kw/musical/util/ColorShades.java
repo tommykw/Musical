@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.musical.util;
+package com.github.tommykw.musical.util;
 
 import android.graphics.Color;
 

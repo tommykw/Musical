@@ -1,8 +1,8 @@
-package tokyo.tommy_kw.musical.api
+package com.github.tommykw.musical.api
 
 import retrofit2.http.GET
 import rx.Observable
-import tokyo.tommy_kw.musical.entity.Weather
+import com.github.tommykw.musical.entity.Weather
 
 /**
  * Created by tommy on 15/10/07.

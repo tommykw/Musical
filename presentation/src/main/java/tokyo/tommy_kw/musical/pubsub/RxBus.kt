@@ -1,8 +1,7 @@
-package tokyo.tommy_kw.musical.pubsub
+package com.github.tommykw.musical.pubsub
 
 import rx.subjects.PublishSubject
 import rx.subjects.SerializedSubject
-import rx.subjects.Subject
 
 /**
  * Created by tommy on 2016/06/30.

@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.musical;
+package com.github.tommykw.musical;
 
 import org.junit.Test;
 

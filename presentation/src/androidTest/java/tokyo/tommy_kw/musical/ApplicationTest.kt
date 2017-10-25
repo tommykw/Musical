@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.musical
+package com.github.tommykw.musical
 
 import android.app.Application
 import android.test.ApplicationTestCase

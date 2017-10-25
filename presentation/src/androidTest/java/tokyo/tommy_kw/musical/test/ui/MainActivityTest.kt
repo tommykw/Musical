@@ -1,14 +1,14 @@
-package tokyo.tommy_kw.musical.test.ui
+package com.github.tommykw.musical.test.ui
 
 import android.test.ActivityInstrumentationTestCase2
 import com.robotium.solo.Solo
 import com.squareup.spoon.Spoon
-import tokyo.tommy_kw.musical.activity.MainActivity
+import com.github.tommykw.musical.activity.MainActivity
 import android.support.test.espresso.Espresso.*
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers.withText
-import tokyo.tommy_kw.musical.R
+import com.github.tommykw.musical.R
 
 /**
  * Created by tommy on 15/10/17.

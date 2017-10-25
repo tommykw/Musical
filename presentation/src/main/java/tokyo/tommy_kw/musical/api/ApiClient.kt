@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.musical.api
+package com.github.tommykw.musical.api
 
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.FieldNamingPolicy
@@ -7,7 +7,7 @@ import com.google.gson.internal.bind.DateTypeAdapter
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import rx.Observable
-import tokyo.tommy_kw.musical.entity.Weather
+import com.github.tommykw.musical.entity.Weather
 import java.util.*
 
 /**

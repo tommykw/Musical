@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.musical.activity
+package com.github.tommykw.musical.activity
 
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
@@ -19,11 +19,11 @@ import kotterknife.bindView
 import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
-import tokyo.tommy_kw.musical.R
-import tokyo.tommy_kw.musical.api.ApiClient
-import tokyo.tommy_kw.musical.application.Router
-import tokyo.tommy_kw.musical.constant.Constants
-import tokyo.tommy_kw.musical.entity.Weather
+import com.github.tommykw.musical.R
+import com.github.tommykw.musical.api.ApiClient
+import com.github.tommykw.musical.application.Router
+import com.github.tommykw.musical.constant.Constants
+import com.github.tommykw.musical.entity.Weather
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     val mToolbar: Toolbar by bindView(R.id.toolbar)
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         mNavigationView.setNavigationItemSelectedListener(this)
 
         writeToFirebase()
-        fetchWeather()
+        //fetchWeather()
     }
 
     override fun onBackPressed() {

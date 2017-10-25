@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.musical.activity
+package com.github.tommykw.musical.activity
 
 import android.content.Context
 import android.content.Intent
@@ -9,8 +9,8 @@ import com.firebase.client.DataSnapshot
 import com.firebase.client.Firebase
 import com.firebase.client.FirebaseError
 import com.firebase.client.ValueEventListener
-import tokyo.tommy_kw.musical.R
-import tokyo.tommy_kw.musical.constant.Constants
+import com.github.tommykw.musical.R
+import com.github.tommykw.musical.constant.Constants
 
 /**
  * Created by tommy on 15/10/06.

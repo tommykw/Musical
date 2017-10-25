@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.musical.constant
+package com.github.tommykw.musical.constant
 
 import java.util.*
 
