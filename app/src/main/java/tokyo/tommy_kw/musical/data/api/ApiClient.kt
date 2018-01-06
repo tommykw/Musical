@@ -6,13 +6,10 @@ import com.google.gson.GsonBuilder
 import com.google.gson.internal.bind.DateTypeAdapter
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import com.github.tommykw.musical.entity.Weather
 import io.reactivex.Observable
+import tokyo.tommy_kw.musical.data.entity.Event
 import java.util.*
 
-/**
- * Created by tommy on 15/10/08.
- */
 class ApiClient {
     companion object {
         private val ENDPOINT = "http://api.openweathermap.org/data/"
@@ -37,8 +34,9 @@ class ApiClient {
             return client
         }
 
-        fun getWeather(): Observable<Weather> {
-            return mApiService.getWeather()
+        fun getEvent(): Observable<Event> {
+            return Observable.just(null)
+            //return mApiService.getWeather()
         }
 
         private fun getRestAdapter(): Retrofit {

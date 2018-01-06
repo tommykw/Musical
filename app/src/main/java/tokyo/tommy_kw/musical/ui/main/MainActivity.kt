@@ -19,11 +19,11 @@ import com.github.tommykw.musical.R
 import com.github.tommykw.musical.api.ApiClient
 import com.github.tommykw.musical.application.Router
 import com.github.tommykw.musical.constant.Constants
-import com.github.tommykw.musical.entity.Weather
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import tokyo.tommy_kw.musical.data.entity.Event
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     val mToolbar: Toolbar by bindView(R.id.toolbar)
@@ -98,15 +98,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun fetchWeather() {
-        ApiClient.getWeather()
+        ApiClient.getEvent()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : Observer<Weather> {
+                .subscribe(object : Observer<Event> {
                     override fun onError(e: Throwable) {
                         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                     }
 
-                    override fun onNext(t: Weather) {
+                    override fun onNext(t: Event) {
                         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                     }
 
