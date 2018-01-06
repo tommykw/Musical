@@ -7,7 +7,7 @@ import com.google.gson.internal.bind.DateTypeAdapter
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import io.reactivex.Observable
-import tokyo.tommy_kw.musical.data.entity.Event
+import com.github.tommykw.musical.data.entity.Event
 import java.util.*
 
 class ApiClient {

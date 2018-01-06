@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.musical.flux
+package com.github.tommykw.musical.flux
 
 interface Action<out T> {
     val data: T

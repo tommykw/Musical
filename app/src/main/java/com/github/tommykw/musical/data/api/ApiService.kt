@@ -2,7 +2,7 @@ package com.github.tommykw.musical.api
 
 import retrofit2.http.GET
 import io.reactivex.Observable
-import tokyo.tommy_kw.musical.data.entity.Event
+import com.github.tommykw.musical.data.entity.Event
 
 interface ApiService {
     companion object {

@@ -23,7 +23,7 @@ import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import tokyo.tommy_kw.musical.data.entity.Event
+import com.github.tommykw.musical.data.entity.Event
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     val mToolbar: Toolbar by bindView(R.id.toolbar)

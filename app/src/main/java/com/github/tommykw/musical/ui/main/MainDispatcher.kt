@@ -1,9 +1,9 @@
-package tokyo.tommy_kw.musical.ui.main
+package com.github.tommykw.musical.ui.main
 
 import io.reactivex.Flowable
 import io.reactivex.processors.BehaviorProcessor
 import io.reactivex.processors.FlowableProcessor
-import tokyo.tommy_kw.musical.flux.Dispatcher
+import com.github.tommykw.musical.flux.Dispatcher
 
 class MainDispatcher : Dispatcher() {
     private val dispatcherShowEvent: FlowableProcessor<MainAction.ShowEvent>

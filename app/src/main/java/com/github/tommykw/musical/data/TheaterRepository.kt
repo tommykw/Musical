@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.musical.data
+package com.github.tommykw.musical.data
 
 import io.reactivex.Observable
 

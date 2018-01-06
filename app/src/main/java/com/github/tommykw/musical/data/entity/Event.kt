@@ -1,4 +1,4 @@
-package tokyo.tommy_kw.musical.data.entity
+package com.github.tommykw.musical.data.entity
 
 data class Event(
     val eventId: Int,

@@ -1,9 +1,9 @@
-package tokyo.tommy_kw.musical.ui.main
+package com.github.tommykw.musical.ui.main
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.LiveDataReactiveStreams
 import io.reactivex.android.schedulers.AndroidSchedulers
-import tokyo.tommy_kw.musical.data.entity.Event
+import com.github.tommykw.musical.data.entity.Event
 
 class MainStore {
     private val dispatcher: MainDispatcher = MainDispatcher()
