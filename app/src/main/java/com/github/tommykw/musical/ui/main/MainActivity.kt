@@ -1,4 +1,4 @@
-package com.github.tommykw.musical.activity
+package com.github.tommykw.musical.ui.main
 
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton

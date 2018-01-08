@@ -1,10 +1,19 @@
 package com.github.tommykw.musical.data
 
-import io.reactivex.Observable
+import com.github.tommykw.musical.api.ApiClient
 
-interface TheaterRepository {
-    fun loadEvents(): Observable<List<Any>>
-    fun loadVenues(): Observable<List<Any>>
-    fun loadEvent(): Observable<Any>
-    fun loadVenue(): Observable<Any>
+class TheaterRepository {
+    fun fetchEvent() = ApiClient.getApiClient().getEvent()
+
+    fun fetchEvents() {
+        TODO()
+    }
+
+    fun fetchVenues() {
+        TODO()
+    }
+
+    fun fetchVenue() {
+        TODO()
+    }
 }

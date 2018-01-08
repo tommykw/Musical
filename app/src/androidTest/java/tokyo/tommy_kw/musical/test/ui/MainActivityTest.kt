@@ -3,7 +3,7 @@ package com.github.tommykw.musical.test.ui
 import android.test.ActivityInstrumentationTestCase2
 import com.robotium.solo.Solo
 import com.squareup.spoon.Spoon
-import com.github.tommykw.musical.activity.MainActivity
+import com.github.tommykw.musical.ui.main.MainActivity
 import android.support.test.espresso.Espresso.*
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.espresso.assertion.ViewAssertions.matches
