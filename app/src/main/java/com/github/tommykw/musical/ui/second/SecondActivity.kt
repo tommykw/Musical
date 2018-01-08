@@ -26,7 +26,7 @@ class SecondActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_second)
+        setContentView(R.layout.second_activity)
 
         if (intent.getStringExtra("INTENT_ARG_MESSAGE") != null) {
             Toast.makeText(this@SecondActivity, intent.getStringExtra("INTENT_ARG_MESSAGE"), Toast.LENGTH_SHORT).show()
