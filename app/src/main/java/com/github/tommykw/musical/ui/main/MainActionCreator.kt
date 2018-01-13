@@ -1,7 +1,6 @@
 package com.github.tommykw.musical.ui.main
 
-import android.util.Log
-import com.github.tommykw.musical.data.TheaterRepository
+import com.github.tommykw.musical.data.repository.TheaterRepository
 import io.reactivex.schedulers.Schedulers
 
 class MainActionCreator {

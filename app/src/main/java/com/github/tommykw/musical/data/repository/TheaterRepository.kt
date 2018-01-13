@@ -1,4 +1,4 @@
-package com.github.tommykw.musical.data
+package com.github.tommykw.musical.data.repository
 
 import com.github.tommykw.musical.api.ApiClient
 
