@@ -13,18 +13,18 @@ import java.util.*
 class ApiClient {
     companion object {
         private val ENDPOINT = "http://api.openweathermap.org/data/"
-        private var mApiService: ApiService
+        private var mApiService: LondonTheaterApi
 
         init {
-            mApiService = getRestAdapter().create(ApiService::class.java)
+            mApiService = getRestAdapter().create(LondonTheaterApi::class.java)
         }
 
-        fun getApiClient(): ApiService {
+        fun getApiClient(): LondonTheaterApi {
             if (mApiService != null) {
                 return mApiService
             }
 
-            mApiService = getRestAdapter().create(ApiService::class.java)
+            mApiService = getRestAdapter().create(LondonTheaterApi::class.java)
             return mApiService
         }
 

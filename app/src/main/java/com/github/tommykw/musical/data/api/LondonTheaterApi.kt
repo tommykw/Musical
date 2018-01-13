@@ -4,7 +4,7 @@ import retrofit2.http.GET
 import io.reactivex.Observable
 import com.github.tommykw.musical.data.entity.Event
 
-interface ApiService {
+interface LondonTheaterApi {
     companion object {
         val VERSION = "2.5"
     }
