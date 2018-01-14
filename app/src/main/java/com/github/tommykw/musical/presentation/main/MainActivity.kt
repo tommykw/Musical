@@ -1,4 +1,4 @@
-package com.github.tommykw.musical.ui.main
+package com.github.tommykw.musical.presentation.main
 
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
@@ -12,7 +12,6 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
 import com.firebase.client.Firebase
 import kotterknife.bindView
 import com.github.tommykw.musical.R
@@ -26,38 +25,34 @@ import io.reactivex.schedulers.Schedulers
 import com.github.tommykw.musical.data.entity.Event
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    val mToolbar: Toolbar by bindView(R.id.toolbar)
-    val mFab: FloatingActionButton by bindView(R.id.fab)
-    val mDrawer: DrawerLayout by bindView(R.id.drawer_layout)
-    val mNavigationView: NavigationView by bindView(R.id.nav_view)
-    val mLat: TextView by bindView(R.id.lat)
-    val mLon: TextView by bindView(R.id.lon)
-    val mBase: TextView by bindView(R.id.base)
-    val mName: TextView by bindView(R.id.name)
+    private val toolbar: Toolbar by bindView(R.id.toolbar)
+    private val fab: FloatingActionButton by bindView(R.id.fab)
+    private val drawer: DrawerLayout by bindView(R.id.drawer_layout)
+    private val navigationView: NavigationView by bindView(R.id.nav_view)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        setSupportActionBar(mToolbar)
-        mFab.setOnClickListener(object : View.OnClickListener {
+        setSupportActionBar(toolbar)
+        fab.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show()
             }
         })
 
         val toggle = ActionBarDrawerToggle(
-                this, mDrawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        mDrawer.setDrawerListener(toggle)
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawer.setDrawerListener(toggle)
         toggle.syncState()
-        mNavigationView.setNavigationItemSelectedListener(this)
+        navigationView.setNavigationItemSelectedListener(this)
 
         writeToFirebase()
         //fetchWeather()
     }
 
     override fun onBackPressed() {
-        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
-            mDrawer.closeDrawer(GravityCompat.START)
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
@@ -93,7 +88,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_send -> Router.routeToSend(this)
         }
 
-        mDrawer.closeDrawer(GravityCompat.START)
+        drawer.closeDrawer(GravityCompat.START)
         return true
     }
 

@@ -1,4 +1,4 @@
-package com.github.tommykw.musical.ui.main
+package com.github.tommykw.musical.presentation.main
 
 import android.databinding.DataBindingUtil
 import android.support.v7.widget.RecyclerView
