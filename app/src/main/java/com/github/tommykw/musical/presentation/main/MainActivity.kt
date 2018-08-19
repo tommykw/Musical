@@ -1,19 +1,14 @@
 package com.github.tommykw.musical.presentation.main
 
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
-import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.databinding.DataBindingUtil
 import com.firebase.client.Firebase
-import kotterknife.bindView
 import com.github.tommykw.musical.R
 import com.github.tommykw.musical.api.ApiClient
 import com.github.tommykw.musical.application.Router
@@ -23,36 +18,36 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import com.github.tommykw.musical.data.entity.Event
+import com.github.tommykw.musical.databinding.MainActivityBinding
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    private val toolbar: Toolbar by bindView(R.id.toolbar)
-    private val fab: FloatingActionButton by bindView(R.id.fab)
-    private val drawer: DrawerLayout by bindView(R.id.drawer_layout)
-    private val navigationView: NavigationView by bindView(R.id.nav_view)
+    private lateinit var binding: MainActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
-        setSupportActionBar(toolbar)
-        fab.setOnClickListener(object : View.OnClickListener {
+        binding = DataBindingUtil.setContentView(this, R.layout.main_activity)
+        setSupportActionBar(binding.toolbar)
+
+        binding.fab.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show()
             }
         })
 
         val toggle = ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawer.setDrawerListener(toggle)
+                this, binding.drawerLayout, binding.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        binding.drawerLayout.setDrawerListener(toggle)
         toggle.syncState()
-        navigationView.setNavigationItemSelectedListener(this)
 
         writeToFirebase()
         //fetchWeather()
     }
 
     override fun onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START)
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
@@ -88,7 +83,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_send -> Router.routeToSend(this)
         }
 
-        drawer.closeDrawer(GravityCompat.START)
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 

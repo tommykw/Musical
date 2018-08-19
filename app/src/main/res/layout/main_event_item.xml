@@ -6,7 +6,7 @@
         <variable name="event" type="com.github.tommykw.musical.data.entity.Event"/>
     </data>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="48dp"
         app:cardUseCompatPadding="true">
@@ -23,5 +23,5 @@
             tools:text="event name"
         />
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </layout>

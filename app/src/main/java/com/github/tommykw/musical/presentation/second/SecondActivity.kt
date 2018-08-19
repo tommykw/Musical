@@ -3,7 +3,7 @@ package com.github.tommykw.musical.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import com.firebase.client.DataSnapshot
 import com.firebase.client.Firebase

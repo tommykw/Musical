@@ -4,8 +4,8 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
-import android.support.v4.app.Fragment
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 
 /**
  * Created by tommy on 15/10/15.
@@ -32,11 +32,11 @@ class CommonDialogFragment : DialogFragment(), DialogInterface.OnClickListener {
         }
     }
 
-    override fun onCreateDialog(savedInstanceState: Bundle): Dialog {
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         retainInstance = true
-        val title = arguments.getString("title")
-        val message = arguments.getString("message")
-        val type = arguments.getString("type")
+        val title = arguments!!.getString("title")
+        val message = arguments!!.getString("message")
+        val type = arguments!!.getString("type")
         val dialog = AlertDialog.Builder(activity).setTitle(title).setMessage(message).setPositiveButton("OK", this)
 
         if (type == ButtonType.NEGATIVE.name) {

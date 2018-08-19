@@ -1,6 +1,6 @@
 package com.github.tommykw.musical.presentation.main
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
     fun onClick() = Unit
