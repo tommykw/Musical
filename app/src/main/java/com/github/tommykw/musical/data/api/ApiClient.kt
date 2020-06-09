@@ -30,7 +30,7 @@ class ApiClient {
 
         fun getOkClient(): OkHttpClient {
             val client = OkHttpClient()
-            client.networkInterceptors().add(StethoInterceptor())
+            client.newBuilder().networkInterceptors().add(StethoInterceptor())
             return client
         }
 
