@@ -12,12 +12,10 @@ import timber.log.Timber
  */
 @HiltAndroidApp
 class App : Application() {
-    override fun onTerminate() {
-        super.onTerminate()
-    }
 
     override fun onCreate() {
         super.onCreate()
+
         Stetho.initializeWithDefaults(this);
         Firebase.setAndroidContext(this);
         if (BuildConfig.DEBUG) {
