@@ -1,9 +1,9 @@
 package com.github.tommykw.musical.di
 
 import android.app.Application
-import com.github.tommykw.musical.data.local.EpisodeDatabase
-import com.github.tommykw.musical.data.network.EpisodeRemoteDataSource
-import com.github.tommykw.musical.data.network.EpisodeService
+import com.github.tommykw.musical.data.local.MusicalDatabase
+import com.github.tommykw.musical.data.network.MusicalRemoteDataSource
+import com.github.tommykw.musical.data.network.MusicalService
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.CoroutineScope
@@ -20,13 +20,13 @@ class AppModule {
     @Provides
     fun provideEpisodeService(okhttpClient: OkHttpClient,
                               converterFactory: GsonConverterFactory
-    ) = provideService(okhttpClient, converterFactory, EpisodeService::class.java)
+    ) = provideService(okhttpClient, converterFactory, MusicalService::class.java)
 
 
     @Singleton
     @Provides
-    fun provideEpisodeRemoteDataSource(episodeService: EpisodeService)
-            = EpisodeRemoteDataSource(episodeService)
+    fun provideEpisodeRemoteDataSource(episodeService: MusicalService)
+            = MusicalRemoteDataSource(episodeService)
 
     @Singleton
     @Provides
@@ -34,11 +34,11 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideDb(app: Application) = EpisodeDatabase.getInstance(app)
+    fun provideDb(app: Application) = MusicalDatabase.getInstance(app)
 
     @Singleton
     @Provides
-    fun provideEpisodeDao(db: EpisodeDatabase) = db.episodeDao()
+    fun provideEpisodeDao(db: MusicalDatabase) = db.musicalDao()
 
     @CoroutineScopeIO
     @Provides
@@ -54,7 +54,7 @@ class AppModule {
             converterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-                .baseUrl(EpisodeService.BASE_URL)
+                .baseUrl(MusicalService.BASE_URL)
                 .client(okhttpClient)
                 .addConverterFactory(converterFactory)
                 .build()

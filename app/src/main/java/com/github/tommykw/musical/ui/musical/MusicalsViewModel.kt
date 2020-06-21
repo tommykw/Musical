@@ -1,21 +1,19 @@
-package com.github.tommykw.musical.ui.episodes
+package com.github.tommykw.musical.ui.musical
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.github.tommykw.musical.data.entity.Episode
-import com.github.tommykw.musical.data.entity.NoTrilogy
-import com.github.tommykw.musical.data.entity.Trilogy
-import com.github.tommykw.musical.data.repository.EpisodeRepository
+import com.github.tommykw.musical.data.entity.Musical
+import com.github.tommykw.musical.data.repository.MusicalRepository
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class EpisodesViewModel @Inject constructor(
-        private val episodeRepository: EpisodeRepository
+class MusicalsViewModel @Inject constructor(
+        private val musicalRepository: MusicalRepository
 ) : ViewModel() {
 
     val snackbar: LiveData<String?>
@@ -28,16 +26,17 @@ class EpisodesViewModel @Inject constructor(
     val spinner: LiveData<Boolean>
         get() = _spinner
 
-    private val trilogyChannel = ConflatedBroadcastChannel<Trilogy>()
+    private val trilogyChannel = ConflatedBroadcastChannel<Int>()
 
-    val episodesUsingFlow: Flow<List<Episode>> = trilogyChannel.asFlow()
+    val musicalsUsingFlow: Flow<List<Musical>> = trilogyChannel.asFlow()
         .flatMapLatest { trilogy ->
             _spinner.value = true
-            if (trilogy == NoTrilogy) {
-                episodeRepository.episodeFlow
-            } else {
-                episodeRepository.getEpisodesForTrilogyFlow(trilogy)
-            }
+            musicalRepository.episodeFlow
+//            if (trilogy == NoTrilogy) {
+//                episodeRepository.episodeFlow
+//            } else {
+//                episodeRepository.getEpisodesForTrilogyFlow(trilogy)
+//            }
         }.onEach {
             _spinner.value = false
         }.catch { throwable ->
@@ -45,20 +44,20 @@ class EpisodesViewModel @Inject constructor(
         }
 
     init {
-        clearTrilogyNumber()
+        //clearTrilogyNumber()
 
-        loadData { episodeRepository.tryUpdateRecentEpisodesCache() }
+        loadData { musicalRepository.tryUpdateRecentEpisodesCache() }
     }
 
-    fun setTrilogyNumber(num: Int) {
-        trilogyChannel.offer(Trilogy(num))
-        loadData { episodeRepository.tryUpdateRecentEpisodesForTrilogyCache(Trilogy(num)) }
-    }
-
-    private fun clearTrilogyNumber() {
-        trilogyChannel.offer(NoTrilogy)
-        loadData { episodeRepository.tryUpdateRecentEpisodesCache() }
-    }
+//    fun setTrilogyNumber(num: Int) {
+//        trilogyChannel.offer(Trilogy(num))
+//        loadData { episodeRepository.tryUpdateRecentEpisodesForTrilogyCache(Trilogy(num)) }
+//    }
+//
+//    private fun clearTrilogyNumber() {
+//        trilogyChannel.offer(NoTrilogy)
+//        loadData { episodeRepository.tryUpdateRecentEpisodesCache() }
+//    }
 
     fun onSnackbarShown() {
         _snackbar.value = null

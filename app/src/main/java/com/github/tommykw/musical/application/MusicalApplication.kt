@@ -9,7 +9,7 @@ import dagger.android.HasActivityInjector
 import timber.log.Timber
 import javax.inject.Inject
 
-class EpisodesApplication : Application(), HasActivityInjector {
+class MusicalApplication : Application(), HasActivityInjector {
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
 

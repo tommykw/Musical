@@ -1,14 +1,14 @@
-package com.github.tommykw.musical.ui.episodes
+package com.github.tommykw.musical.ui.musical
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.github.tommykw.musical.data.entity.Episode
-import com.github.tommykw.musical.databinding.ListItemEpisodeBinding
+import com.github.tommykw.musical.data.entity.Musical
+import com.github.tommykw.musical.databinding.ListItemMusicalBinding
 
-class EpisodeAdapter : ListAdapter<Episode, RecyclerView.ViewHolder>(EpisodeDiffCallback()) {
+class EpisodeAdapter : ListAdapter<Musical, RecyclerView.ViewHolder>(MusicalDiffCallback()) {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val episode = getItem(position)
@@ -17,32 +17,32 @@ class EpisodeAdapter : ListAdapter<Episode, RecyclerView.ViewHolder>(EpisodeDiff
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return EpisodeViewHolder(
-                ListItemEpisodeBinding.inflate(
+                ListItemMusicalBinding.inflate(
                         LayoutInflater.from(parent.context), parent, false
                 )
         )
     }
 
     class EpisodeViewHolder(
-            private val binding: ListItemEpisodeBinding
+            private val binding: ListItemMusicalBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Episode) {
+        fun bind(item: Musical) {
             binding.apply {
-                episode = item
+                musical = item
                 executePendingBindings()
             }
         }
     }
 }
 
-private class EpisodeDiffCallback : DiffUtil.ItemCallback<Episode>() {
+private class MusicalDiffCallback : DiffUtil.ItemCallback<Musical>() {
 
-    override fun areItemsTheSame(oldItem: Episode, newItem: Episode): Boolean {
-        return oldItem.episodeId == newItem.episodeId
+    override fun areItemsTheSame(oldItem: Musical, newItem: Musical): Boolean {
+        return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: Episode, newItem: Episode): Boolean {
+    override fun areContentsTheSame(oldItem: Musical, newItem: Musical): Boolean {
         return oldItem == newItem
     }
 }

@@ -9,7 +9,7 @@
         android:background="@color/colorPrimaryDark">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/episode_list"
+            android:id="@+id/musical_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
@@ -19,7 +19,7 @@
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:spanCount="@integer/grid_columns"
             tools:context="com.raywenderlich.android.episodes.ui.MainActivity"
-            tools:listitem="@layout/list_item_episode" />
+            tools:listitem="@layout/list_item_musical" />
 
         <ProgressBar
             android:id="@+id/spinner"

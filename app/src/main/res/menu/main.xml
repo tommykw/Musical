@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/filter_prequels"
+    <item android:id="@+id/filter_a"
         app:showAsAction="never"
-        android:title="prequels"/>
+        android:title="a"/>
 
-    <item android:id="@+id/filter_original"
+    <item android:id="@+id/filter_b"
         app:showAsAction="never"
-        android:title="original"/>
+        android:title="b"/>
 
-    <item android:id="@+id/filter_sequels"
+    <item android:id="@+id/filter_c"
         app:showAsAction="never"
-        android:title="sequels"/>
+        android:title="c"/>
 
     <item android:id="@+id/filter_all"
         app:showAsAction="never"

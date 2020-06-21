@@ -1,6 +1,6 @@
 package com.github.tommykw.musical.di
 
-import com.github.tommykw.musical.ui.episodes.EpisodesFragment
+import com.github.tommykw.musical.ui.musical.MusicalsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -8,5 +8,5 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class FragmentBuildersModule {
     @ContributesAndroidInjector
-    abstract fun contributeThemeFragment(): EpisodesFragment
+    abstract fun contributeThemeFragment(): MusicalsFragment
 }

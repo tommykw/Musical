@@ -1,4 +1,4 @@
-package com.github.tommykw.musical.ui.episodes
+package com.github.tommykw.musical.ui.musical
 
 import android.os.Bundle
 import android.view.*
@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.github.tommykw.musical.R
-import com.github.tommykw.musical.databinding.EpisodesFragmentBinding
+import com.github.tommykw.musical.databinding.MusicalsFragmentBinding
 import com.github.tommykw.musical.di.Injectable
 import com.github.tommykw.musical.ui.injectViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -18,14 +18,14 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class EpisodesFragment : Fragment(), Injectable, CoroutineScope {
+class MusicalsFragment : Fragment(), Injectable, CoroutineScope {
 
     private var job = Job()
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private lateinit var viewModel: EpisodesViewModel
+    private lateinit var viewModel: MusicalsViewModel
 
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
@@ -37,7 +37,7 @@ class EpisodesFragment : Fragment(), Injectable, CoroutineScope {
 
         viewModel = injectViewModel(viewModelFactory)
 
-        val binding = EpisodesFragmentBinding.inflate(inflater, container, false)
+        val binding = MusicalsFragmentBinding.inflate(inflater, container, false)
         context ?: return binding.root
 
         viewModel.spinner.observe(viewLifecycleOwner, Observer<Boolean> { show ->
@@ -52,7 +52,7 @@ class EpisodesFragment : Fragment(), Injectable, CoroutineScope {
         })
 
         val adapter = EpisodeAdapter()
-        binding.episodeList.adapter = adapter
+        binding.musicalList.adapter = adapter
 
         launch {
             subscribeUi(adapter)
@@ -73,15 +73,15 @@ class EpisodesFragment : Fragment(), Injectable, CoroutineScope {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.filter_prequels -> {
+            R.id.filter_a -> {
                 filterData(1)
                 true
             }
-            R.id.filter_original -> {
+            R.id.filter_b -> {
                 filterData(2)
                 true
             }
-            R.id.filter_sequels -> {
+            R.id.filter_c -> {
                 filterData(3)
                 true
             }
@@ -94,11 +94,11 @@ class EpisodesFragment : Fragment(), Injectable, CoroutineScope {
     }
 
     private fun filterData(num: Int) {
-        viewModel.setTrilogyNumber(num)
+        //viewModel.setTrilogyNumber(num)
     }
 
     private suspend fun subscribeUi(adapter: EpisodeAdapter) {
-        viewModel.episodesUsingFlow.collect { episodes ->
+        viewModel.musicalsUsingFlow.collect { episodes ->
             adapter.submitList(episodes)
         }
     }

@@ -1,7 +1,7 @@
 package com.github.tommykw.musical.di
 
 import android.app.Application
-import com.github.tommykw.musical.application.EpisodesApplication
+import com.github.tommykw.musical.application.MusicalApplication
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -25,5 +25,5 @@ interface AppComponent {
         fun build(): AppComponent
     }
 
-    fun inject(application: EpisodesApplication)
+    fun inject(application: MusicalApplication)
 }

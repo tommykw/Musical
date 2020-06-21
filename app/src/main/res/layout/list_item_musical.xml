@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="episode"
-            type="com.github.tommykw.musical.data.entity.Episode" />
+            name="musical"
+            type="com.github.tommykw.musical.data.entity.Musical" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -30,7 +30,7 @@
                 android:layout_height="@dimen/episode_item_image_height"
                 android:contentDescription="image"
                 android:scaleType="centerCrop"
-                app:imageFromUrl="@{episode.poster}"
+                app:imageFromUrl="@{musical.poster}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -42,7 +42,7 @@
                 android:layout_marginTop="@dimen/margin_normal"
                 android:layout_marginBottom="@dimen/margin_normal"
                 android:gravity="center_horizontal"
-                android:text="@{episode.name}"
+                android:text="@{musical.name}"
                 android:textSize="12sp"
                 android:textColor="@android:color/white"
                 android:textAppearance="?attr/textAppearanceListItem"

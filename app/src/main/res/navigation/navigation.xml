@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/navigation_episodes">
+    app:startDestination="@id/navigation_musicals">
 
     <fragment
-        android:id="@+id/navigation_episodes"
-        android:name="com.github.tommykw.musical.ui.episodes.EpisodesFragment"
+        android:id="@+id/navigation_musicals"
+        android:name="com.github.tommykw.musical.ui.musical.MusicalsFragment"
         android:label="episodes"
-        tools:layout="@layout/episodes_fragment" />
+        tools:layout="@layout/musicals_fragment" />
 
 </navigation>

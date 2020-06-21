@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
         val appBarConfiguration = AppBarConfiguration(
                 setOf(
-                        R.id.navigation_episodes
+                        R.id.navigation_musicals
                 )
         )
 
