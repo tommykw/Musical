@@ -1,6 +1,4 @@
 [
-  {"episodeId": "tesb"},
-  {"episodeId": "tros"},
-  {"episodeId": "anh"},
-  {"episodeId": "tlj"}
+  {"productionId": "a"},
+  {"productionId": "b"}
 ]
