@@ -8,22 +8,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.tommykw.musical.data.entity.Musical
 import com.github.tommykw.musical.databinding.ListItemMusicalBinding
 
-class EpisodeAdapter : ListAdapter<Musical, RecyclerView.ViewHolder>(MusicalDiffCallback()) {
+class MusicalAdapter : ListAdapter<Musical, RecyclerView.ViewHolder>(MusicalDiffCallback()) {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val episode = getItem(position)
-        (holder as EpisodeViewHolder).bind(episode)
+        val musical = getItem(position)
+        (holder as MusicalViewHolder).bind(musical)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return EpisodeViewHolder(
+        return MusicalViewHolder(
                 ListItemMusicalBinding.inflate(
                         LayoutInflater.from(parent.context), parent, false
                 )
         )
     }
 
-    class EpisodeViewHolder(
+    class MusicalViewHolder(
             private val binding: ListItemMusicalBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 

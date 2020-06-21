@@ -18,15 +18,15 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideEpisodeService(okhttpClient: OkHttpClient,
+    fun provideMusicalService(okhttpClient: OkHttpClient,
                               converterFactory: GsonConverterFactory
     ) = provideService(okhttpClient, converterFactory, MusicalService::class.java)
 
 
     @Singleton
     @Provides
-    fun provideEpisodeRemoteDataSource(episodeService: MusicalService)
-            = MusicalRemoteDataSource(episodeService)
+    fun provideMusicalRemoteDataSource(musicalService: MusicalService)
+            = MusicalRemoteDataSource(musicalService)
 
     @Singleton
     @Provides
@@ -38,7 +38,7 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideEpisodeDao(db: MusicalDatabase) = db.musicalDao()
+    fun provideMusicalDao(db: MusicalDatabase) = db.musicalDao()
 
     @CoroutineScopeIO
     @Provides

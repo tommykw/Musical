@@ -18,7 +18,7 @@
             android:paddingEnd="@dimen/card_side_margin"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:spanCount="@integer/grid_columns"
-            tools:context="com.raywenderlich.android.episodes.ui.MainActivity"
+            tools:context=".ui.MainActivity"
             tools:listitem="@layout/list_item_musical" />
 
         <ProgressBar

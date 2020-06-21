@@ -12,5 +12,5 @@
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="card_corner_radius">12dp</dimen>
     <dimen name="header_margin">24dp</dimen>
-    <dimen name="episode_item_image_height">200dp</dimen>
+    <dimen name="musical_item_image_height">200dp</dimen>
 </resources>

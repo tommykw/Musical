@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class MusicalRemoteDataSource @Inject constructor(private val service: MusicalService) {
 
-    suspend fun fetchAllEpisodes() = withContext(Dispatchers.IO) {
+    suspend fun fetchAllMusicals() = withContext(Dispatchers.IO) {
         service.getAllMusicals()
     }
 

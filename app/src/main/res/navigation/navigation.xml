@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navigation_musicals"
         android:name="com.github.tommykw.musical.ui.musical.MusicalsFragment"
-        android:label="episodes"
+        android:label="musicals"
         tools:layout="@layout/musicals_fragment" />
 
 </navigation>

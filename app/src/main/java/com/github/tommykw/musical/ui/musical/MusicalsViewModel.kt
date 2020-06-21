@@ -31,11 +31,11 @@ class MusicalsViewModel @Inject constructor(
     val musicalsUsingFlow: Flow<List<Musical>> = trilogyChannel.asFlow()
         .flatMapLatest { trilogy ->
             _spinner.value = true
-            musicalRepository.episodeFlow
+            musicalRepository.musicalFlow
 //            if (trilogy == NoTrilogy) {
-//                episodeRepository.episodeFlow
+//                musicalRepository.musicalFlow
 //            } else {
-//                episodeRepository.getEpisodesForTrilogyFlow(trilogy)
+//                musicalRepository.getMusicalsForTrilogyFlow(trilogy)
 //            }
         }.onEach {
             _spinner.value = false
@@ -46,17 +46,19 @@ class MusicalsViewModel @Inject constructor(
     init {
         //clearTrilogyNumber()
 
-        loadData { musicalRepository.tryUpdateRecentEpisodesCache() }
+        loadData {
+            musicalRepository.tryUpdateRecentMusicalsCache()
+        }
     }
 
 //    fun setTrilogyNumber(num: Int) {
 //        trilogyChannel.offer(Trilogy(num))
-//        loadData { episodeRepository.tryUpdateRecentEpisodesForTrilogyCache(Trilogy(num)) }
+//        loadData { musicalRepository.tryUpdateRecentMusicalForTrilogyCache(Trilogy(num)) }
 //    }
 //
 //    private fun clearTrilogyNumber() {
 //        trilogyChannel.offer(NoTrilogy)
-//        loadData { episodeRepository.tryUpdateRecentEpisodesCache() }
+//        loadData { musicalRepository.tryUpdateRecentMusicalsCache() }
 //    }
 
     fun onSnackbarShown() {

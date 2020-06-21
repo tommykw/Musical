@@ -25,9 +25,9 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/episode_item_image"
+                android:id="@+id/musical_item_image"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/episode_item_image_height"
+                android:layout_height="@dimen/musical_item_image_height"
                 android:contentDescription="image"
                 android:scaleType="centerCrop"
                 app:imageFromUrl="@{musical.poster}"
@@ -36,7 +36,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/episode_name"
+                android:id="@+id/musical_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_normal"
@@ -49,8 +49,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/episode_item_image"
-                tools:text="A New Hope" />
+                app:layout_constraintTop_toBottomOf="@id/musical_item_image"
+                tools:text="a" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

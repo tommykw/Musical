@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface MusicalDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun save(episode: Musical)
+    fun save(musical: Musical)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveAll(episodes: List<Musical>)
+    suspend fun saveAll(musicals: List<Musical>)
 
     @Query("SELECT * FROM musical ORDER BY id")
     fun loadAllMusicalsFlow(): Flow<List<Musical>>

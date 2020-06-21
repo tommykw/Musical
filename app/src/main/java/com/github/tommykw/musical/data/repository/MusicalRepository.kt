@@ -26,7 +26,7 @@ class MusicalRepository @Inject constructor(
         emit(favoriteSortOrder)
     }
 
-    val episodeFlow: Flow<List<Musical>>
+    val musicalFlow: Flow<List<Musical>>
         get() = musicalDao.loadAllMusicalsFlow()
             .combine(favoriteFlow) { musicals, favoritesOrder ->
                 musicals.applySort(favoritesOrder)
@@ -41,34 +41,34 @@ class MusicalRepository @Inject constructor(
             }
     }
 
-    private fun shouldUpdateEpisodesCache(): Boolean {
+    private fun shouldUpdateMusicalsCache(): Boolean {
         return true
     }
 
-    suspend fun tryUpdateRecentEpisodesCache() {
-        if (shouldUpdateEpisodesCache()) fetchRecentEpisodes()
+    suspend fun tryUpdateRecentMusicalsCache() {
+        if (shouldUpdateMusicalsCache()) fetchRecentMusicals()
     }
 
-    suspend fun tryUpdateRecentEpisodesForIdCache() {
-        if (shouldUpdateEpisodesCache()) fetchRecentMusicalsForId()
+    suspend fun tryUpdateRecentMusicalsForIdCache() {
+        if (shouldUpdateMusicalsCache()) fetchRecentMusicalsForId()
     }
 
-    private suspend fun fetchRecentEpisodes() {
-        val episodes = musicalRDS.fetchAllEpisodes()
-        musicalDao.saveAll(episodes)
+    private suspend fun fetchRecentMusicals() {
+        val musicals = musicalRDS.fetchAllMusicals()
+        musicalDao.saveAll(musicals)
     }
 
     private suspend fun fetchRecentMusicalsForId() {
-        val musicalForId = musicalRDS.fetchAllEpisodes()
-        //musicalRDS.saveAll(musicalForId)
+        val musicalForId = musicalRDS.fetchAllMusicals()
+        musicalDao.saveAll(musicalForId)
     }
 
     private fun List<Musical>.applySort(favoritesSortOrder: List<Int>): List<Musical> {
-        return sortedBy { episode ->
-            val positionForItem = favoritesSortOrder.indexOf(episode.id).let { order ->
+        return sortedBy { musical ->
+            val positionForItem = favoritesSortOrder.indexOf(musical.id).let { order ->
                 if (order > -1) order else Int.MAX_VALUE
             }
-            ComparablePair(positionForItem, episode.id)
+            ComparablePair(positionForItem, musical.id)
         }
     }
 

@@ -12,7 +12,7 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(MusicalsViewModel::class)
-    abstract fun bindEpisodesViewModel(viewModel: MusicalsViewModel): ViewModel
+    abstract fun bindMusicalsViewModel(viewModel: MusicalsViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

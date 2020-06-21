@@ -51,7 +51,7 @@ class MusicalsFragment : Fragment(), Injectable, CoroutineScope {
             }
         })
 
-        val adapter = EpisodeAdapter()
+        val adapter = MusicalAdapter()
         binding.musicalList.adapter = adapter
 
         launch {
@@ -97,9 +97,9 @@ class MusicalsFragment : Fragment(), Injectable, CoroutineScope {
         //viewModel.setTrilogyNumber(num)
     }
 
-    private suspend fun subscribeUi(adapter: EpisodeAdapter) {
-        viewModel.musicalsUsingFlow.collect { episodes ->
-            adapter.submitList(episodes)
+    private suspend fun subscribeUi(adapter: MusicalAdapter) {
+        viewModel.musicalsUsingFlow.collect { musicals ->
+            adapter.submitList(musicals)
         }
     }
 }
