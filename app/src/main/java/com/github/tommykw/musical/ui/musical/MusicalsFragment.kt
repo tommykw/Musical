@@ -59,6 +59,7 @@ class MusicalsFragment : Fragment(), Injectable, CoroutineScope {
         }
 
         setHasOptionsMenu(true)
+        filterData(-1)
         return binding.root
     }
 
@@ -94,7 +95,7 @@ class MusicalsFragment : Fragment(), Injectable, CoroutineScope {
     }
 
     private fun filterData(num: Int) {
-        //viewModel.setTrilogyNumber(num)
+        viewModel.setTrilogyNumber(num)
     }
 
     private suspend fun subscribeUi(adapter: MusicalAdapter) {

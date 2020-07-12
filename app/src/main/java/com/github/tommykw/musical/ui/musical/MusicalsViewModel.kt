@@ -51,11 +51,11 @@ class MusicalsViewModel @Inject constructor(
         }
     }
 
-//    fun setTrilogyNumber(num: Int) {
-//        trilogyChannel.offer(Trilogy(num))
-//        loadData { musicalRepository.tryUpdateRecentMusicalForTrilogyCache(Trilogy(num)) }
-//    }
-//
+    fun setTrilogyNumber(num: Int) {
+        trilogyChannel.offer(num)
+        loadData { musicalRepository.tryUpdateRecentMusicalsForIdCache() }
+    }
+
 //    private fun clearTrilogyNumber() {
 //        trilogyChannel.offer(NoTrilogy)
 //        loadData { musicalRepository.tryUpdateRecentMusicalsCache() }
